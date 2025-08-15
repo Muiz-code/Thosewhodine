@@ -1,0 +1,62 @@
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Shadows+Into+Light+Two&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Monsieur+La+Doulaise&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Montez&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&display=swap");
+
+@import "tailwindcss";
+
+.playfair {
+  font-family: "Playfair Display", serif;
+}
+
+.dm-sans {
+  font-family: "DM Sans", sans-serif;
+}
+.lato {
+  font-family: "Lato", sans-serif;
+}
+.SILTR {
+  font-family: "Shadows Into Light Two", cursive;
+}
+.montez {
+  font-family: "Montez", cursive;
+}
+
+.textSpace1 {
+  letter-spacing: 0.8rem;
+}
+.textSpace2 {
+  letter-spacing: 0.3rem;
+}
+
+.homeBg {
+  background: url("./assets/landingPageBg.jpg");
+  background-size: cover;
+}
+.home2bg {
+  background: url("./assets/Background1.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+.footerBg {
+  background: url("./assets/menu.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+.active-nav-link {
+  position: relative;
+}
+
+.active-nav-link::after {
+  content: "";
+  border: 1;
+  position: absolute;
+  bottom: -3px;
+  left: 0;
+  width: 30%;
+  height: 1px;
+  background-color: #2b3210;
+}
