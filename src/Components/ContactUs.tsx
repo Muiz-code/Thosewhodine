@@ -117,7 +117,7 @@ const ContactForm: React.FC = () => {
             <div>
               <button
                 type="submit"
-                className="w-full flex justify-center py-3 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-[#2B3210] bg-[#E5E2D9] hover:bg-[#a9a7a1] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+                className="w-full flex justify-center py-3 px-4 border border-transparent rounded-md shadow-sm font-medium text-[#E5E2D9] bg-[#2B3210] hover:bg-[#2B3210]/50 hover:text-[#2B3210] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 hover:scale-102 transition-transform duration-300"
               >
                 Send Message
               </button>

@@ -7,7 +7,7 @@ import logo from "../assets/Logo NoBg White.png";
 const Footer: React.FC = () => {
   return (
     <div className="bg-[#505631] text-white z-100">
-      <div className="md:flex md:flex-row flex flex-col pt-5 items-center justify-center footerBg bg-cover bg-center bg-no-repeat w-[100%] md:h-[50vh] h-auto relative gap-5">
+      <div className="md:flex md:flex-row flex flex-col md:pt-0 pt-5 items-center justify-center footerBg bg-cover bg-center bg-no-repeat w-[100%] md:h-[50vh] h-auto relative gap-5">
         <div>
           <h1 className="z-20 text-center md:text-4xl text-3xl montez font-bold text-[#E5E2D9] capitalize">
             Newsletter
@@ -67,18 +67,18 @@ const Footer: React.FC = () => {
       </div>
       <footer className="p-8 md:p-12 bg-[#2B3210] md:h-[50vh] h-auto relative">
         <div className="container mx-auto">
-          <div className="flex flex-col items-center text-center md:flex-row md:justify-between md:items-start md:text-left">
+          <div className="flex flex-col items-center text-center md:flex-row md:justify-around md:items-start md:text-left">
             {/* Logo and Copyright Section */}
             <div className="mb-6 md:mb-0 flex flex-col items-center">
               <img
                 src={logo}
                 alt="TWD Logo"
-                className="w-24 md:w-[20%] mb-4 md:absolute md:top-[-15%] md:left-[41.5%]"
+                className="w-24 md:w-[20%] mb-4 md:absolute md:top-[30%] md:left-[5%]"
               />
-              <p className="text-[#E5E2D9] playfair text-sm mt-0 md:mt-20 md:flex hidden">
+              {/* <p className="text-[#E5E2D9] playfair text-sm mt-0 md:mt-20 md:flex hidden">
                 &copy; {new Date().getFullYear()} Those Who Dine. All rights
                 reserved.
-              </p>
+              </p> */}
             </div>
 
             {/* Navigation Links Section */}
@@ -88,48 +88,57 @@ const Footer: React.FC = () => {
               </h4>
               <ul className="space-y-2 playfair text-gray-700 grid md:grid-cols-2 grid-cols-1 md:gap-5">
                 <li>
-                  <a href="#home" className="text-[#E5E2D9] transition-colors">
+                  <a
+                    href="#home"
+                    className="relative group text-[#E5E2D9] transition-all duration-300 hover:text-white"
+                  >
                     Home
+                    <span className="absolute bottom-0 left-0 w-full h-[2px] bg-white transform scale-x-0 transition-transform duration-300 group-hover:scale-x-100"></span>
                   </a>
                 </li>
                 <li>
                   <a
                     href="#about-us"
-                    className="text-[#E5E2D9] transition-colors"
+                    className="relative group text-[#E5E2D9] transition-all duration-300 hover:text-white"
                   >
                     About Us
+                    <span className="absolute bottom-0 left-0 w-full h-[2px] bg-white transform scale-x-0 transition-transform duration-300 group-hover:scale-x-100"></span>
                   </a>
                 </li>
                 <li>
                   <a
                     href="#what-we-do"
-                    className="text-[#E5E2D9] transition-colors"
+                    className="relative group text-[#E5E2D9] transition-all duration-300 hover:text-white"
                   >
                     What We Do
+                    <span className="absolute bottom-0 left-0 w-full h-[2px] bg-white transform scale-x-0 transition-transform duration-300 group-hover:scale-x-100"></span>
                   </a>
                 </li>
                 <li>
                   <a
                     href="#events"
-                    className="text-[#E5E2D9] transition-colors"
+                    className="relative group text-[#E5E2D9] transition-all duration-300 hover:text-white"
                   >
                     Events
+                    <span className="absolute bottom-0 left-0 w-full h-[2px] bg-white transform scale-x-0 transition-transform duration-300 group-hover:scale-x-100"></span>
                   </a>
                 </li>
                 <li>
                   <a
                     href="#work-with-us"
-                    className="text-[#E5E2D9] transition-colors"
+                    className="relative group text-[#E5E2D9] transition-all duration-300 hover:text-white"
                   >
                     Work With Us
+                    <span className="absolute bottom-0 left-0 w-full h-[2px] bg-white transform scale-x-0 transition-transform duration-300 group-hover:scale-x-100"></span>
                   </a>
                 </li>
                 <li>
                   <a
                     href="#contact"
-                    className="text-[#E5E2D9] transition-colors"
+                    className="relative group text-[#E5E2D9] transition-all duration-300 hover:text-white"
                   >
                     Contact
+                    <span className="absolute bottom-0 left-0 w-full h-[2px] bg-white transform scale-x-0 transition-transform duration-300 group-hover:scale-x-100"></span>
                   </a>
                 </li>
               </ul>
@@ -166,11 +175,13 @@ const Footer: React.FC = () => {
               <p className="mt-4 playfair text-[#E5E2D9]">
                 thosewdine@gmail.com
               </p>
-              <p className="text-[#E5E2D9] playfair text-[10px] mt-5 md:hidden flex">
-                &copy; {new Date().getFullYear()} Those Who Dine. All rights
-                reserved.
-              </p>
             </div>
+          </div>
+          <div className="flex justify-center items-center mt-8 p-4 rounded-md">
+            <p className="text-[#E5E2D9] playfair md:text-[13px] text-[10px] text-center md:mt-0 mt-5 flex">
+              &copy; {new Date().getFullYear()} Those Who Dine. All rights
+              reserved.
+            </p>
           </div>
         </div>
       </footer>

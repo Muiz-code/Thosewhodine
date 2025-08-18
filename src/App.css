@@ -37,12 +37,12 @@
   background-size: cover;
 }
 .home2bg {
-  background: url("./assets/Background1.png");
+  background: url("./assets/landingPageBg.webp");
   background-size: cover;
   background-repeat: no-repeat;
 }
 .footerBg {
-  background: url("./assets/footerbg.png");
+  background: url("./assets/FooterBg.webp");
   background-size: cover;
   /* background-position: 10% 0; */
   background-repeat: no-repeat;

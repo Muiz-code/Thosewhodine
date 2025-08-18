@@ -2,18 +2,18 @@ import img1 from "../assets/Deto30th/Detos30th1.JPG";
 import img2 from "../assets/NigerianInspired/Nigerian-Inspired.jpg";
 import img3 from "../assets/TWDxChefBenedict/TWDxChefBenedict.jpg";
 import img4 from "../assets/menu.jpg";
-// import deto1 from "../assets/Deto30th/Deto30th2.jpeg";
-import deto2 from "../assets/Deto30th/Deto1.png";
-import deto3 from "../assets/Deto30th/Detos30th1.JPG";
-import deto4 from "../assets/Deto30th/Deto4.jpeg";
-import deto5 from "../assets/Deto30th/Deto5.JPG";
-import deto6 from "../assets/Deto30th/Deto6.jpg";
-import deto7 from "../assets/Deto30th/Detos7.jpg";
-import deto8 from "../assets/Deto30th/Deto8.jpg";
-import deto9 from "../assets/Deto30th/Detos9.jpg";
-import deto10 from "../assets/Deto30th/Detos10.jpg";
-import deto11 from "../assets/Deto30th/deto11.png";
-import deto12 from "../assets/Deto30th/deto12.png";
+import deto1 from "../assets/Deto30th/Deto1.webp";
+import deto2 from "../assets/Deto30th/Deto2.webp";
+import deto3 from "../assets/Deto30th/Deto3.webp";
+import deto4 from "../assets/Deto30th/Deto4.webp";
+import deto5 from "../assets/Deto30th/Deto5.webp";
+import deto6 from "../assets/Deto30th/Deto6.webp";
+import deto7 from "../assets/Deto30th/Detos7.webp";
+import deto8 from "../assets/Deto30th/Deto8.webp";
+import deto9 from "../assets/Deto30th/Detos9.webp";
+import deto10 from "../assets/Deto30th/Detos10.webp";
+import deto11 from "../assets/Deto30th/deto11.webp";
+import deto12 from "../assets/Deto30th/deto12.webp";
 import NIB from "../assets/NigerianInspired/NIB.jpg";
 import NIB2 from "../assets/NigerianInspired/NIB2.jpg";
 import NIB3 from "../assets/NigerianInspired/NIB3.jpg";
@@ -49,7 +49,7 @@ export const events = [
       deto8,
       deto2,
       deto10,
-      // deto1,
+      deto1,
     ],
   },
   {
