@@ -42,8 +42,9 @@
   background-repeat: no-repeat;
 }
 .footerBg {
-  background: url("./assets/menu.jpg");
+  background: url("./assets/footerbg.png");
   background-size: cover;
+  /* background-position: 10% 0; */
   background-repeat: no-repeat;
 }
 .active-nav-link {

@@ -114,7 +114,7 @@ const Sidebar = () => {
                 <X size={25} />
               </button>
             )}
-            <ul className="playfair text-[#2B3210] text-[21px] montez textSpace2 font-extrabold capitalize space-y-3 w-full md:w-auto">
+            <ul className="playfair text-[#2B3210] text-[21px] montez textSpace2 font-extrabold space-y-3 w-full md:w-auto">
               <li>
                 <a
                   href="#home"
@@ -130,7 +130,7 @@ const Sidebar = () => {
                     activeSection === "about-us" ? "active-nav-link" : ""
                   }
                 >
-                  About Us
+                  About us
                 </a>
               </li>
               <li>
@@ -140,7 +140,7 @@ const Sidebar = () => {
                     activeSection === "what-we-do" ? "active-nav-link" : ""
                   }
                 >
-                  What We Do
+                  What we do
                 </a>
               </li>
               <li>
@@ -160,7 +160,7 @@ const Sidebar = () => {
                     activeSection === "work-with-us" ? "active-nav-link" : ""
                   }
                 >
-                  Work With Us
+                  Work with us
                 </a>
               </li>
               <li>

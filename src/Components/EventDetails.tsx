@@ -2,6 +2,8 @@ import { useParams, useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { events } from "../data/events";
 import { ChevronLeft, ChevronRight, X } from "lucide-react";
+// import { CiHome } from "react-icons/ci";
+import { House } from "lucide-react";
 
 const EventDetail = () => {
   const { eventId } = useParams<{ eventId: string }>();
@@ -45,9 +47,9 @@ const EventDetail = () => {
         <h1 className="text-2xl font-bold">Event not found!</h1>
         <button
           onClick={() => navigate("/")}
-          className="mt-4 px-6 py-2 bg-[#E5E2D9] text-white rounded-lg hover:bg-gray-600 transition"
+          className="mt-4 px-6 py-2 text-[#E5E2D9] hover:scale-105 duration-200 transition"
         >
-          Back to Home
+          <House />
         </button>
       </div>
     );
@@ -68,9 +70,9 @@ const EventDetail = () => {
         </div>
         <button
           onClick={() => navigate("/")}
-          className="absolute md:top-8 top-2 md:left-8 left-2 md:px-4 px-2 py-2 bg-[#E5E2D9] cursor-pointer text-gray-800 md:text-[15px] text-[12px] rounded-full hover:bg-gray-200 transition"
+          className="absolute md:top-8 top-2 md:left-8 left-2 md:px-4 px-2 py-2 cursor-pointer text-[#E5E2D9] md:text-[15px] text-[12px] hover:scale-105 duration-200 transition"
         >
-          &larr; Back to Home
+          <House />
         </button>
       </div>
 

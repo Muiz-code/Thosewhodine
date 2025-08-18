@@ -9,7 +9,7 @@ const AboutUs = () => {
       className="md:px-[10%] md:py-[2%] p-3 md:pt-10 pt-5 bg-[#E5E2D9] flex flex-col"
     >
       <div className="flex flex-col md:gap-5 gap-2">
-        <h1 className="text-[#2B3210] md:text-4xl text-3xl font-bold montez textSpace2 capitalize">
+        <h1 className="text-[#2B3210] md:text-4xl text-3xl font-bold montez textSpace2">
           Who are we?
         </h1>
 
@@ -28,7 +28,7 @@ const AboutUs = () => {
 
       {/* Meet the founders */}
       <div className="border-t-2 border-[#2B3210] w-[100%] mt-2 gap-10 flex flex-col justify-between md:border-0 border-r border-l md:h-auto h-[65vh]">
-        <h1 className="text-[#2B3210] md:text-4xl text-3xl font-bold montez textSpace2 capitalize">
+        <h1 className="text-[#2B3210] md:text-4xl text-3xl font-bold montez textSpace2">
           Meet the founders
         </h1>
 

@@ -34,11 +34,11 @@ const ContactForm: React.FC = () => {
         {/* Form Section */}
         <div className="flex-1 w-full order-2 md:order-1">
           <div className="mb-4">
-            <h2 className="md:text-4xl text-3xl font-bold montez textSpace2 capitalize text-[#2B3210]">
-              Planning a Dinner Party?
+            <h2 className="md:text-4xl text-3xl font-bold montez textSpace2 text-[#2B3210]">
+              Planning a dinner party?
             </h2>
-            <p className="text-[#2b3210] text-[17px] playfair italic mt-2">
-              Fill the form below to reach us!
+            <p className="text-[#2b3210] md:text-xl text-[15px] playfair mt-2">
+              Reach out to us!
             </p>
           </div>
           <form onSubmit={handleSubmit} className="space-y-6 w-full">

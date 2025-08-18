@@ -14,8 +14,8 @@ const WhatWeDo = () => {
       className="md:px-[10%] md:py-[2%] p-3 pt-5 bg-[#5056314e] flex flex-col relative h-auto md:pt-10 "
     >
       <div className="flex flex-col text-left md:gap-5 gap-2 text-[#2b3210]">
-        <h1 className=" md:text-4xl text-3xl font-bold montez textSpace2 capitalize">
-          WHAT WE DO
+        <h1 className=" md:text-4xl text-3xl font-bold montez textSpace2">
+          What we do
         </h1>
         <div className="flex gap-5 W-[100%] md:justify-start justify-center">
           <div className="flex flex-col gap-5 w-[100%] md:justify-start justify-center">

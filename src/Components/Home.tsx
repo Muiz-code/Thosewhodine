@@ -1,5 +1,6 @@
-import { IoLogoInstagram } from "react-icons/io";
-// import TypewriterText from "./TypewriterText";
+import { PiTiktokLogoLight } from "react-icons/pi";
+import { FaInstagram } from "react-icons/fa";
+import { CiMail } from "react-icons/ci";
 import logo from "../assets/Logo NoBg White.png";
 import { Link } from "react-router-dom";
 
@@ -15,14 +16,37 @@ const Home = () => {
     >
       <div className="flex justify-between items-center w-[100%] px-10 absolute md:top-5 top-6">
         <Link to={"/"}>
-          <img src={logo} className="md:w-[7%] w-[20%]" alt="" />
+          <img
+            src={logo}
+            className="md:w-[7%] w-[20%] hover:scale-105 duration-300 transition-all"
+            alt=""
+          />
         </Link>
-        <Link
-          to={"www.instagram.com"}
-          className="flex items-center justify-center space-x-4"
-        >
-          <IoLogoInstagram className="text-[#E5E2D9] text-2xl" />
-        </Link>
+        <div>
+          <div className="flex justify-center md:justify-start space-x-4">
+            <a
+              href="#"
+              aria-label="Instagram"
+              className="text-[#E5E2D9] hover:text-[#505631] md:text-[25px] text-[20px] transition-colors"
+            >
+              <FaInstagram />
+            </a>
+            <a
+              href="#"
+              aria-label="Tiktok"
+              className="text-[#E5E2D9] hover:text-[#505631] md:text-[25px] text-[20px] transition-colors"
+            >
+              <PiTiktokLogoLight />
+            </a>
+            <a
+              href="mailto:thosewdine@gmail.com"
+              aria-label="Mail"
+              className="text-[#E5E2D9] hover:text-[#505631] md:text-[25px] text-[20px] transition-colors"
+            >
+              <CiMail />
+            </a>
+          </div>
+        </div>
       </div>
 
       <div className="flex flex-col items-center justify-center h-full text-white bg-black/30">

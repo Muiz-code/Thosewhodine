@@ -114,17 +114,17 @@ const ConsultationForm: React.FC = () => {
       id="work-with-us"
       className="md:px-[10%] md:py-[2%] md:pb-[6%] p-3 bg-[#5056314e] flex flex-col relative h-auto w-full mx-auto"
     >
-      <div className="mb-2 flex flex-col md:gap-4 gap-1">
-        <h2 className="md:text-4xl text-3xl font-bold montez textSpace2 capitalize">
-          Work With Us
+      <div className="mb-2 flex flex-col md:gap-1 gap-1">
+        <h2 className="md:text-4xl text-3xl font-bold montez textSpace2">
+          Consultation form
         </h2>
-        <p className="text-[#2b3210] md:text-xl text-[15px] playfair italic mb-4">
-          Want to throw an unforgettable Dinner Party?
-          <br /> Fill the form below to get started!
+        <p className="text-[#2b3210] md:text-xl text-[15px] playfair mb-4">
+          Want to throw an unforgettable Dinner Party? Fill the form below to
+          get started!
         </p>
       </div>
 
-      <div className="flex items-center justify-center w-full">
+      <div className="flex w-full">
         <form onSubmit={handleSubmit} className="space-y-12 w-full md:w-[60%]">
           {/* Step 1: Contact Information */}
           {currentStep === 1 && (

@@ -10,9 +10,10 @@ const Gallery = () => {
       <h1 className=" md:text-4xl text-3xl font-bold montez textSpace2 capitalize">
         Past Events
       </h1>
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-3">
+      <div className="grid grid-cols-1 md:grid-cols-4 lg:grid-cols-4 gap-3">
         {events.map((event) => (
-          <div
+          <Link
+            to={`/events/${event.id}`}
             key={event.id}
             className="relative block group transition-transform duration-300 transform hover:scale-101"
           >
@@ -24,21 +25,18 @@ const Gallery = () => {
 
             <div className="absolute inset-0 bg-black/30 rounded-lg"></div>
 
-            <Link
-              to={`/events/${event.id}`}
-              className="absolute inset-0 bg-black/50 flex items-center justify-center rounded-lg transition-opacity duration-300 group-hover:opacity-100 opacity-0"
-            ></Link>
+            <div className="absolute inset-0 bg-black/50 flex items-center justify-center rounded-lg transition-opacity duration-300 group-hover:opacity-100 opacity-0"></div>
 
-            <div className="absolute md:top-15 bottom-0 md: left-1left-5 text-white p-2 text-left transition-all duration-300">
-              <h2 className="md:text-5xl text-3xl font-bold montez textSpace2 capitalize text-white mb-5">
+            <div className="absolute md:bottom-1 bottom-0 md: left-1left-5 text-white p-2 text-left transition-all duration-300">
+              <h2 className="md:text-3xl text-xl font-bold montez textSpace2 capitalize text-white">
                 {event.title}
               </h2>
-              <div className="h-1 bg-white transition-all duration-300 w-0 group-hover:w-full "></div>
-              <p className="mt-2 text-sm italic transition-opacity duration-300 opacity-0 group-hover:opacity-100">
+              {/* <div className="h-1 bg-white transition-all duration-300 w-0 group-hover:w-full "></div>
+              <p className="mt-2 text-sm playfair transition-opacity duration-300 opacity-0 group-hover:opacity-100">
                 Click to view gallery
-              </p>
+              </p> */}
             </div>
-          </div>
+          </Link>
         ))}
       </div>
     </div>

@@ -40,7 +40,6 @@ export const events = [
     gallery: [
       deto5,
       deto12,
-      deto1,
       deto3,
       deto4,
       deto11,
@@ -50,6 +49,7 @@ export const events = [
       deto8,
       deto2,
       deto10,
+      deto1,
     ],
   },
   {
