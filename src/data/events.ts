@@ -2,7 +2,7 @@ import img1 from "../assets/Deto30th/Detos30th1.JPG";
 import img2 from "../assets/NigerianInspired/Nigerian-Inspired.jpg";
 import img3 from "../assets/TWDxChefBenedict/TWDxChefBenedict.jpg";
 import img4 from "../assets/menu.jpg";
-import deto1 from "../assets/Deto30th/Deto30th2.jpeg";
+// import deto1 from "../assets/Deto30th/Deto30th2.jpeg";
 import deto2 from "../assets/Deto30th/Deto1.png";
 import deto3 from "../assets/Deto30th/Detos30th1.JPG";
 import deto4 from "../assets/Deto30th/Deto4.jpeg";
@@ -49,7 +49,7 @@ export const events = [
       deto8,
       deto2,
       deto10,
-      deto1,
+      // deto1,
     ],
   },
   {
