@@ -33,16 +33,16 @@
 }
 
 .homeBg {
-  background: url("./assets/landingPageBg.jpg");
+  background: url("./assets/landingPageBg.webp");
   background-size: cover;
 }
-.home2bg {
+/* .home2bg {
   background: url("./assets/landingPageBg.webp");
   background-size: cover;
   background-repeat: no-repeat;
-}
+} */
 .footerBg {
-  background: url("./assets/FooterBg.webp");
+  background: url("./assets/footerbg.webp");
   background-size: cover;
   /* background-position: 10% 0; */
   background-repeat: no-repeat;

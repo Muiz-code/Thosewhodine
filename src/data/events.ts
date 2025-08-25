@@ -1,4 +1,4 @@
-import img1 from "../assets/Deto30th/Detos30th1.JPG";
+import img1 from "../assets/Deto30th/Deto1.webp";
 import img2 from "../assets/NigerianInspired/Nigerian-Inspired.jpg";
 import img3 from "../assets/TWDxChefBenedict/TWDxChefBenedict.jpg";
 import img4 from "../assets/menu.jpg";
@@ -13,7 +13,7 @@ import deto8 from "../assets/Deto30th/Deto8.webp";
 import deto9 from "../assets/Deto30th/Detos9.webp";
 import deto10 from "../assets/Deto30th/Detos10.webp";
 import deto11 from "../assets/Deto30th/deto11.webp";
-import deto12 from "../assets/Deto30th/deto12.webp";
+import deto12 from "../assets/Deto30th/Deto12.jpeg";
 import NIB from "../assets/NigerianInspired/NIB.jpg";
 import NIB2 from "../assets/NigerianInspired/NIB2.jpg";
 import NIB3 from "../assets/NigerianInspired/NIB3.jpg";
@@ -27,7 +27,7 @@ import NIB10 from "../assets/NigerianInspired/NIB10.jpg";
 import NIB11 from "../assets/NigerianInspired/NIB11.jpg";
 import NIB12 from "../assets/NigerianInspired/NIB12.jpg";
 import NIB13 from "../assets/NigerianInspired/NIB13.jpg";
-import gif1 from "../assets/Deto30th/Detos 30th.gif";
+import gif1 from "../assets/Deto30th/detoGif.gif";
 import Nibgif from "../assets/NigerianInspired/NIBgif.gif";
 import Nibgif3 from "../assets/NigerianInspired/NIBgif3.gif";
 
@@ -39,7 +39,6 @@ export const events = [
     gif: gif1,
     gallery: [
       deto5,
-      deto12,
       deto3,
       deto4,
       deto11,
@@ -61,6 +60,7 @@ export const events = [
       img2,
       Nibgif3,
       NIB,
+      deto12,
       Nibgif,
       NIB2,
       NIB5,
@@ -89,7 +89,7 @@ export const events = [
     ],
   },
   {
-    id: "event-three",
+    id: "event-four",
     title: "More Events Coming Soon...",
     coverImage: img4,
     gif: gif1,

@@ -172,9 +172,6 @@ const Footer: React.FC = () => {
                   <CiMail size={24} />
                 </a>
               </div>
-              <p className="mt-4 playfair text-[#E5E2D9]">
-                thosewdine@gmail.com
-              </p>
             </div>
           </div>
           <div className="flex justify-center items-center mt-8 p-4 rounded-md">

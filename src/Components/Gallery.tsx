@@ -5,7 +5,7 @@ const Gallery = () => {
   return (
     <div
       id="events"
-      className="container mx-auto md:px-[10%] p-3 pt-5 py-[2%] flex flex-col gap-5 bg-[#2b321049]"
+      className="mx-auto md:px-[10%] p-3 pt-5 py-[2%] flex flex-col gap-5 bg-[#2b321049]"
     >
       <h1 className=" md:text-4xl text-3xl font-bold montez textSpace2 capitalize">
         Past Events

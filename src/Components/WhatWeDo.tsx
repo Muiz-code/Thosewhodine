@@ -3,8 +3,8 @@ import Card from "./HoverCard";
 import hoverGif from "../assets/chefSelection.gif";
 import img1 from "../assets/ChefSelection.jpg";
 import img2 from "../assets/TWD Launch.jpg";
-import img3 from "../assets/TWD Launch Event 4.jpg";
-import img4 from "../assets/TWD Launch.jpg";
+import img3 from "../assets/Deto30th/Deto4.webp";
+import img4 from "../assets/Deto30th/Deto12.jpeg";
 // import detos from "../assets/Detos 30th 2.jpg";
 
 const WhatWeDo = () => {

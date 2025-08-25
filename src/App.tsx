@@ -5,12 +5,17 @@ import {
   Route,
   RouterProvider,
 } from "react-router-dom";
+import ReactGA from "react-ga4";
 import { useEffect, useState } from "react";
-import Sidebar from "./Components/Sidebar";
+import MainLayout from "./Components/MainLayout";
 import LandingPage from "./pages/LandingPage";
 import Preloader from "./Components/Preloader";
 import EventDetail from "./Components/EventDetails";
-// import Footer from "./Components/Footer";
+
+const MEASUREMENT_ID = "G-K1HJ5JCS7Z";
+
+// Initialize GA4
+ReactGA.initialize(MEASUREMENT_ID);
 
 function App() {
   const [showPreloader, setShowPreloader] = useState(true);
@@ -25,7 +30,7 @@ function App() {
   const router = createBrowserRouter(
     createRoutesFromElements(
       <Route>
-        <Route element={<Sidebar />}>
+        <Route element={<MainLayout />}>
           {/* Renders the full single-scroll website on the homepage */}
           <Route path="/" element={<LandingPage />} />
         </Route>

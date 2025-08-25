@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import contactImage from "../assets/ChefSelection.jpg";
+import contactImage from "../assets/Deto30th/Detos7.webp";
 
 const ContactForm: React.FC = () => {
   const [formData, setFormData] = useState({

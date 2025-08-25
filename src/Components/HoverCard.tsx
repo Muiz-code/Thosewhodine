@@ -19,12 +19,12 @@ const FoodieCardWithHoverDescription: React.FC<CardProps> = ({
 
   return (
     <div
-      className="relative flex max-w-3xl mx-auto rounded-lg overflow-hidden shadow-xl bg-[#2b3210] text-[#E5E2D9] h-96"
+      className="relative md:flex md:flex-row grid  max-w-3xl mx-auto rounded-lg overflow-hidden shadow-xl bg-[#2b3210] text-[#E5E2D9] h-96"
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
       {/* Image Section - takes up 50% of the card */}
-      <div className="relative w-1/2 flex-shrink-0 overflow-hidden">
+      <div className="relative md:w-1/2 w-[100%] md:h-auto h-[30vh] flex-shrink-0 overflow-hidden">
         <img
           src={isHovered ? gifImage : staticImage}
           alt={altText}
@@ -36,13 +36,13 @@ const FoodieCardWithHoverDescription: React.FC<CardProps> = ({
       </div>
 
       {/* Description Section - This section takes up the remaining 50% */}
-      <div className="w-1/2 flex-shrink-0 md:p-6 p-2 flex flex-col justify-center relative">
+      <div className="md:w-1/2 w-[100%] flex-shrink-0 md:p-6 p-2 flex flex-col justify-center relative">
         <div
-          className={`absolute md:left-0 left-2 inset-0 flex flex-col items-center justify-end pb-3 transition-opacity duration-300 ${
+          className={`absolute md:left-0 left-1 inset-0 flex flex-col md:items-center items-start justify-end pb-3 transition-opacity duration-300 ${
             isHovered ? "opacity-0" : "opacity-100"
           }`}
         >
-          <h3 className="font-bold montez textSpace2 md:text-3xl text-xl">
+          <h3 className="font-bold montez textSpace2 md:text-3xl text-2xl">
             {title}
           </h3>
         </div>
