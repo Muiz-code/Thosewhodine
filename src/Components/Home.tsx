@@ -25,15 +25,17 @@ const Home = () => {
         <div>
           <div className="flex justify-center md:justify-start space-x-4">
             <a
-              href="#"
+              href="https://www.instagram.com/thosewhodine?igsh=cTcyNmJucmVjaTI0"
               aria-label="Instagram"
+              target="blank"
               className="text-[#E5E2D9] hover:text-[#505631] md:text-[25px] text-[20px] transition-colors"
             >
               <FaInstagram />
             </a>
             <a
-              href="#"
+              href="https://www.tiktok.com/@thosewhodine?_t=ZN-8z0cOQ81ePm&_r=1"
               aria-label="Tiktok"
+              target="blank"
               className="text-[#E5E2D9] hover:text-[#505631] md:text-[25px] text-[20px] transition-colors"
             >
               <PiTiktokLogoLight />

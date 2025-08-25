@@ -13,7 +13,13 @@ const EventDetail = () => {
   const [loadedImages, setLoadedImages] = useState(0);
   const [showGallery, setShowGallery] = useState(false);
 
-  const event = events.find((e) => e.id === eventId);
+  // Define the gallery item type
+  type GalleryItem = string | { src: string; type: "video" | "image" };
+  
+  // Find the event and ensure its gallery is typed
+  const event = events.find((e) => e.id === eventId) as
+    | (typeof events[number] & { gallery: GalleryItem[] })
+    | undefined;
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -88,37 +94,63 @@ const EventDetail = () => {
             ))}
 
           {/* Actual images */}
-          {event.gallery.map((image, index) => (
-            <div
-              key={index}
-              className={`mb-8 relative transition-opacity duration-500 ${
-                showGallery ? "opacity-100" : "opacity-0"
-              }`}
-            >
-              <img
-                src={image}
-                alt={`${event.title} - Photo ${index + 1}`}
-                className="w-full h-auto object-cover rounded-lg shadow-md cursor-zoom-in transition-transform duration-300 hover:scale-102"
-                onClick={() => setCurrentIndex(index)}
-                onLoad={() => setLoadedImages((prev) => prev + 1)}
-                loading="lazy"
-                width="800"
-                height="600"
-              />
-            </div>
-          ))}
+          {event.gallery.map(
+            (
+              item: string | { src: string; type: "video" | "image" },
+              index: number
+            ) => {
+              // If it's a string, assume it's an image
+              const isVideo =
+                typeof item !== "string" && item.type === "video";
+              const src = typeof item === "string" ? item : item.src;
+
+              return (
+                <div
+                  key={index}
+                  className={`mb-8 relative transition-opacity duration-500 ${
+                    showGallery ? "opacity-100" : "opacity-0"
+                  }`}
+                >
+                  {isVideo ? (
+                    <video
+                      controls
+                      className="w-full h-auto rounded-lg shadow-md cursor-pointer"
+                      onLoadedData={() => setLoadedImages((prev) => prev + 1)}
+                    >
+                      <source src={src} type="video/mp4" />
+                      Your browser does not support the video tag.
+                    </video>
+                  ) : (
+                    <img
+                      src={src}
+                      alt={`${event.title} - Media ${index + 1}`}
+                      className="w-full h-auto object-cover rounded-lg shadow-md cursor-zoom-in transition-transform duration-300 hover:scale-102"
+                      onClick={() => setCurrentIndex(index)}
+                      onLoad={() => setLoadedImages((prev) => prev + 1)}
+                      loading="lazy"
+                      width="800"
+                      height="600"
+                    />
+                  )}
+                </div>
+              );
+            }
+          )}
         </div>
       </div>
 
       {/* --- Lightbox Modal --- */}
       {currentIndex !== null && (
         <div className="fixed inset-0 bg-black/90 flex items-center justify-center z-50">
+          {/* Close */}
           <button
             onClick={() => setCurrentIndex(null)}
             className="absolute top-6 right-6 text-white text-3xl z-50"
           >
             <X size={30} />
           </button>
+
+          {/* Prev */}
           <button
             onClick={() =>
               setCurrentIndex(
@@ -129,11 +161,32 @@ const EventDetail = () => {
           >
             <ChevronLeft size={40} />
           </button>
-          <img
-            src={event.gallery[currentIndex]}
-            alt="Zoomed"
-            className="max-w-[90%] max-h-[90%] rounded-lg shadow-lg object-contain"
-          />
+
+          {/* Media */}
+          {(() => {
+            const item = event.gallery[currentIndex] as GalleryItem;
+            const isVideo = typeof item !== "string" && item.type === "video";
+            const src = typeof item === "string" ? item : item.src;
+
+            return isVideo ? (
+              <video
+                controls
+                autoPlay
+                className="max-w-[90%] max-h-[90%] rounded-lg shadow-lg"
+              >
+                <source src={src} type="video/mp4" />
+                Your browser does not support the video tag.
+              </video>
+            ) : (
+              <img
+                src={src}
+                alt="Zoomed"
+                className="max-w-[90%] max-h-[90%] rounded-lg shadow-lg object-contain"
+              />
+            );
+          })()}
+
+          {/* Next */}
           <button
             onClick={() =>
               setCurrentIndex((currentIndex + 1) % event.gallery.length)

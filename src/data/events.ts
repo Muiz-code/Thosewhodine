@@ -30,6 +30,8 @@ import NIB13 from "../assets/NigerianInspired/NIB13.jpg";
 import gif1 from "../assets/Deto30th/detoGif.gif";
 import Nibgif from "../assets/NigerianInspired/NIBgif.gif";
 import Nibgif3 from "../assets/NigerianInspired/NIBgif3.gif";
+import TwdXben from "../assets/TWDxChefBenedict/TWDxChefBenedict.mp4";
+import TwdXben2 from "../assets/TWDxChefBenedict/twdXben1.gif";
 
 export const events = [
   {
@@ -83,9 +85,9 @@ export const events = [
     coverImage: img3,
     gif: gif1,
     gallery: [
-      "https://via.placeholder.com/800x600/5733FF/FFFFFF?text=Spring+Festival+Photo+1",
-      "https://via.placeholder.com/800x600/5733FF/FFFFFF?text=Spring+Festival+Photo+2",
-      "https://via.placeholder.com/800x600/5733FF/FFFFFF?text=Spring+Festival+Photo+3",
+      TwdXben,
+      TwdXben2,
+      { type: "video", src: "../assets/TWDxChefBenedict/twdXben.mp4" },
     ],
   },
   {
