@@ -27,11 +27,9 @@ import NIB10 from "../assets/NigerianInspired/NIB10.jpg";
 import NIB11 from "../assets/NigerianInspired/NIB11.jpg";
 import NIB12 from "../assets/NigerianInspired/NIB12.jpg";
 import NIB13 from "../assets/NigerianInspired/NIB13.jpg";
-import gif1 from "../assets/Deto30th/detoGif.gif";
+import gif1 from "../assets/Deto30th/Deto1.webp";
 import Nibgif from "../assets/NigerianInspired/NIBgif.gif";
 import Nibgif3 from "../assets/NigerianInspired/NIBgif3.gif";
-import TwdXben from "../assets/TWDxChefBenedict/TWDxChefBenedict.mp4";
-import TwdXben2 from "../assets/TWDxChefBenedict/twdXben1.gif";
 
 export const events = [
   {
@@ -84,11 +82,7 @@ export const events = [
     title: "TWD x Chef Benedict",
     coverImage: img3,
     gif: gif1,
-    gallery: [
-      TwdXben,
-      TwdXben2,
-      { type: "video", src: "../assets/TWDxChefBenedict/twdXben.mp4" },
-    ],
+    gallery: [],
   },
   {
     id: "event-four",
