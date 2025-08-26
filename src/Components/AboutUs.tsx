@@ -1,4 +1,4 @@
-import sketchedWoman3 from "../assets/sketchedWoman3.png";
+import sketchedWoman3 from "../assets/6.jpg";
 import sketchedWoman from "../assets/sketchWoman2.png";
 import TypewriterText from "./TypewriterText";
 
@@ -6,9 +6,9 @@ const AboutUs = () => {
   return (
     <div
       id="about-us"
-      className="md:px-[10%] md:py-[2%] p-3 md:pt-10 pt-5 bg-[#E5E2D9] flex flex-col"
+      className="md:px-[10%] md:py-[2%] p-3 md:pt-10 pt-5 bg-[#f7f0db] flex flex-col"
     >
-      <div className="flex flex-col md:gap-5 gap-2">
+      <div className="flex flex-col md:gap-5 gap-2 ">
         <h1 className="text-[#2B3210] md:text-4xl text-3xl font-bold montez textSpace2">
           Who are we?
         </h1>
@@ -27,7 +27,7 @@ const AboutUs = () => {
       </div>
 
       {/* Meet the founders */}
-      <div className="border-t-2 border-[#2B3210] w-[100%] mt-2 gap-10 flex flex-col justify-between md:border-0 border-r border-l md:h-auto h-[65vh]">
+      <div className="w-[100%] mt-2 gap-0 flex flex-col justify-between md:border-0 border-r border-l md:h-auto h-[65vh] ">
         <h1 className="text-[#2B3210] md:text-4xl text-3xl font-bold montez textSpace2">
           Meet the founders
         </h1>
@@ -43,52 +43,52 @@ const AboutUs = () => {
             className="w-[100%] hidden md:flex"
             alt=""
           />
-          <div className="absolute flex flex-col md:bottom-[25%] bottom-75 md:left-0 left-1 gap-3 text-[#2B3210]">
+          <div className="absolute flex flex-col md:top-[6%] bottom-75 md:left-10 left-1 gap-3 text-[#2B3210] text-center">
             <TypewriterText
               text="Ajibola Ogunranti"
-              style1="md:text-3xl text-xl playfair italic font-bold"
+              style1="md:text-3xl text-xl playfair font-bold"
               speed={300}
             />
             <TypewriterText
-              text="- Client Lead"
-              style1="md:text-xl text-sm dm-sans font-bold italic"
+              text="  Client Lead"
+              style1="md:text-lg text-sm font-bold montez textSpace2"
               speed={700}
             />
           </div>
-          <div className="absolute flex flex-col md:bottom-5 bottom-50 md:left-0 left-1 gap-3 text-[#2B3210]">
+          <div className="absolute flex flex-col md:bottom-[5%] bottom-50 md:left-[25%] left-1 gap-3 text-[#2B3210] text-center">
             <TypewriterText
               text="Temilolu Fagbemi"
-              style1="md:text-4xl text-xl playfair italic font-bold"
+              style1="md:text-3xl text-xl playfair font-bold"
               speed={300}
             />
             <TypewriterText
-              text="- Finance Director"
-              style1="md:text-xl text-sm dm-sans font-bold italic"
+              text="Finance Director"
+              style1="md:text-lg text-sm font-bold montez textSpace2"
               speed={700}
             />
           </div>
           <div className="flex flex-col items-end border">
-            <div className="absolute flex flex-col md:bottom-[25%] bottom-65 md:right-0 right-10 gap-3 text-[#2B3210]">
+            <div className="absolute flex flex-col md:top-[6%] bottom-65 md:right-[32%] right-10 gap-3 text-[#2B3210] text-center">
               <TypewriterText
                 text="Tamilore Bolu"
-                style1="md:text-3xl text-xl playfair italic font-bold"
+                style1="md:text-3xl text-xl playfair font-bold"
                 speed={300}
               />
               <TypewriterText
                 text="- Creative Director"
-                style1="md:text-xl text-sm dm-sans font-bold italic"
+                style1="md:text-lg text-sm font-bold montez textSpace2"
                 speed={700}
               />
             </div>
-            <div className="absolute flex flex-col md:bottom-5 bottom-35 md:right-0 right-2 gap-3 text-[#2B3210]">
+            <div className="absolute flex flex-col md:bottom-[10%] bottom-35 md:right-0 right-2 gap-3 text-[#2B3210] text-center">
               <TypewriterText
                 text="Zena Giwa-Osagie"
-                style1="md:text-4xl text-xl playfair italic font-bold"
+                style1="md:text-3xl text-xl playfair font-bold"
                 speed={300}
               />
               <TypewriterText
                 text="- Operations & Events Manager"
-                style1="md:text-xl text-sm dm-sans font-bold italic"
+                style1="md:text-lg text-sm font-bold montez textSpace2"
                 speed={700}
               />
             </div>
