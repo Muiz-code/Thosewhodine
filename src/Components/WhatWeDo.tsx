@@ -1,6 +1,5 @@
 import TypewriterText from "./TypewriterText";
 import Card from "./HoverCard";
-import hoverGif from "../assets/chefSelection.gif";
 import img1 from "../assets/ChefSelection.jpg";
 import img2 from "../assets/TWD Launch.jpg";
 import img3 from "../assets/Deto30th/Deto4.webp";
@@ -37,7 +36,6 @@ const WhatWeDo = () => {
       <div className="grid grid-cols-1 md:grid-cols-2 gap-5 mt-10 justify-center">
         <Card
           staticImage={img1}
-          gifImage={hoverGif}
           altText="A description of the image"
           title="Chef Selection & Menu Design"
           description="We collaborate with top-tier chefs to
@@ -48,7 +46,6 @@ const WhatWeDo = () => {
         />
         <Card
           staticImage={img2}
-          gifImage={hoverGif}
           altText="A description of the image"
           title="Full-Service Event Management"
           description="We take care of everything so you
@@ -60,7 +57,6 @@ const WhatWeDo = () => {
         />
         <Card
           staticImage={img3}
-          gifImage={hoverGif}
           altText="A description of the image"
           title="Venue Sourcing & Styling"
           description="Finding the perfect setting is essential. Whether it’s a hidden gem in
@@ -72,7 +68,6 @@ const WhatWeDo = () => {
         />
         <Card
           staticImage={img4}
-          gifImage={hoverGif}
           altText="A description of the image"
           title="Concept Development & Theme Curation"
           description="No two events are the same. Our in-house creative team works closely

@@ -2,7 +2,7 @@ import React, { useState } from "react";
 
 interface CardProps {
   staticImage: string;
-  gifImage: string;
+  // gifImage: string;
   altText: string;
   title: string;
   description: string;
@@ -10,7 +10,7 @@ interface CardProps {
 
 const FoodieCardWithHoverDescription: React.FC<CardProps> = ({
   staticImage,
-  gifImage,
+  // gifImage,
   altText,
   title,
   description,
@@ -26,7 +26,7 @@ const FoodieCardWithHoverDescription: React.FC<CardProps> = ({
       {/* Image Section - takes up 50% of the card */}
       <div className="relative md:w-1/2 w-[100%] md:h-auto h-[30vh] flex-shrink-0 overflow-hidden">
         <img
-          src={isHovered ? gifImage : staticImage}
+          src={ staticImage}
           alt={altText}
           className={`absolute inset-0 w-full h-full object-cover transition-transform duration-500 ease-in-out ${
             isHovered ? "scale-110" : "scale-100"

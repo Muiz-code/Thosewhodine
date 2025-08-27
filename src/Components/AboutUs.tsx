@@ -1,12 +1,11 @@
-import sketchedWoman3 from "../assets/6.jpg";
-import sketchedWoman from "../assets/sketchWoman2.png";
+import sketchedWomen from "../assets/6.png";
 import TypewriterText from "./TypewriterText";
 
 const AboutUs = () => {
   return (
     <div
       id="about-us"
-      className="md:px-[10%] md:py-[2%] p-3 md:pt-10 pt-5 bg-[#f7f0db] flex flex-col"
+      className="md:px-[10%] md:py-[2%] p-3 md:pt-10 pt-5 bg-[#E5E2D9] flex flex-col"
     >
       <div className="flex flex-col md:gap-5 gap-2 ">
         <h1 className="text-[#2B3210] md:text-4xl text-3xl font-bold montez textSpace2">
@@ -27,8 +26,8 @@ const AboutUs = () => {
       </div>
 
       {/* Meet the founders */}
-      <div className="w-[100%] mt-2 gap-0 flex flex-col justify-between md:border-0 border-r border-l md:h-auto h-[65vh] ">
-        <h1 className="text-[#2B3210] md:text-4xl text-3xl font-bold montez textSpace2">
+      <div className="w-[100%] mt-2 gap-0 flex flex-col justify-between md:border-0 border-1 md:h-auto h-[75vh] ">
+        <h1 className="text-[#2B3210] md:text-4xl text-3xl font-bold montez textSpace2 md:p-0 pl-1 pt-1">
           Meet the founders
         </h1>
 
@@ -38,12 +37,8 @@ const AboutUs = () => {
           data-aos-delay="100"
           data-aos-offset="0"
         >
-          <img
-            src={sketchedWoman3}
-            className="w-[100%] hidden md:flex"
-            alt=""
-          />
-          <div className="absolute flex flex-col md:top-[6%] bottom-75 md:left-10 left-1 gap-3 text-[#2B3210] text-center">
+          <img src={sketchedWomen} className="w-[100%] hidden md:flex" alt="" />
+          <div className="absolute flex flex-col md:top-[3%] bottom-98 md:left-10 left-1 gap-3 text-[#2B3210] text-center">
             <TypewriterText
               text="Ajibola Ogunranti"
               style1="md:text-3xl text-xl playfair font-bold"
@@ -55,7 +50,7 @@ const AboutUs = () => {
               speed={700}
             />
           </div>
-          <div className="absolute flex flex-col md:bottom-[5%] bottom-50 md:left-[25%] left-1 gap-3 text-[#2B3210] text-center">
+          <div className="absolute flex flex-col md:bottom-[5%] bottom-80 md:left-[25%] left-1 gap-3 text-[#2B3210] text-center">
             <TypewriterText
               text="Temilolu Fagbemi"
               style1="md:text-3xl text-xl playfair font-bold"
@@ -68,7 +63,7 @@ const AboutUs = () => {
             />
           </div>
           <div className="flex flex-col items-end border">
-            <div className="absolute flex flex-col md:top-[6%] bottom-65 md:right-[32%] right-10 gap-3 text-[#2B3210] text-center">
+            <div className="absolute flex flex-col md:top-[5%] bottom-90 md:right-[32%] right-2 gap-3 text-[#2B3210] text-center">
               <TypewriterText
                 text="Tamilore Bolu"
                 style1="md:text-3xl text-xl playfair font-bold"
@@ -80,7 +75,7 @@ const AboutUs = () => {
                 speed={700}
               />
             </div>
-            <div className="absolute flex flex-col md:bottom-[10%] bottom-35 md:right-0 right-2 gap-3 text-[#2B3210] text-center">
+            <div className="absolute flex flex-col md:bottom-[10%] bottom-65 md:right-0 right-2 gap-3 text-[#2B3210] text-center">
               <TypewriterText
                 text="Zena Giwa-Osagie"
                 style1="md:text-3xl text-xl playfair font-bold"
@@ -93,7 +88,7 @@ const AboutUs = () => {
               />
             </div>
           </div>
-          <img src={sketchedWoman} className="flex md:hidden" alt="" />
+          <img src={sketchedWomen} className="flex md:hidden" alt="" />
         </div>
       </div>
     </div>

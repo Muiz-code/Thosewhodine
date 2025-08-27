@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import contactImage from "../assets/ContactImg.jpg";
+import contactImage from "../assets/Deto30th/Detos7.webp";
 
 const ContactForm: React.FC = () => {
   const [formData, setFormData] = useState({
@@ -130,7 +130,7 @@ const ContactForm: React.FC = () => {
           <img
             src={contactImage}
             alt="An image representing a dinner party"
-            className="w-full h-auto object-cover rounded-lg "
+            className="w-full h-auto object-cover rounded-lg shadow-lg"
           />
         </div>
       </div>

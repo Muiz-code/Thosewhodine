@@ -28,7 +28,6 @@ import NIB11 from "../assets/NigerianInspired/NIB11.jpg";
 import NIB12 from "../assets/NigerianInspired/NIB12.jpg";
 import NIB13 from "../assets/NigerianInspired/NIB13.jpg";
 import gif1 from "../assets/Deto30th/Deto1.webp";
-import Nibgif from "../assets/NigerianInspired/NIBgif.gif";
 import Nibgif3 from "../assets/NigerianInspired/NIBgif3.gif";
 
 export const events = [
@@ -55,13 +54,12 @@ export const events = [
     id: "event-two",
     title: "Nigerian-Inspired Brunch",
     coverImage: img2,
-    gif: Nibgif,
+    gif: Nibgif3,
     gallery: [
       img2,
       Nibgif3,
       NIB,
       deto12,
-      Nibgif,
       NIB2,
       NIB5,
       NIB6,
