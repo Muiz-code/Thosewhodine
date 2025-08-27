@@ -84,7 +84,7 @@ const AboutUs = () => {
               <TypewriterText
                 text="Operations & Events Manager"
                 style1="md:text-lg text-sm font-bold montez textSpace2"
-                speed={700}
+                speed={500}
               />
             </div>
           </div>
