@@ -12,26 +12,26 @@ import PopupCard from "../Components/PopupCard";
 const LandingPage = () => {
   const [showPopup, setShowPopup] = useState(false);
 
-  useEffect(() => {
-    const hasSeenModal = sessionStorage.getItem("hasSeenNewsletter");
+  // useEffect(() => {
+  //   const hasSeenModal = sessionStorage.getItem("hasSeenNewsletter");
 
-    if (!hasSeenModal) {
-      setTimeout(() => {
-        setShowPopup(true);
-        sessionStorage.setItem("hasSeenNewsletter", "true");
-      }, 1000); // delay show by 1 sec
-    }
-  }, []);
+  //   if (!hasSeenModal) {
+  //     setTimeout(() => {
+  //       setShowPopup(true);
+  //       sessionStorage.setItem("hasSeenNewsletter", "true");
+  //     }, 1000); // delay show by 1 sec
+  //   }
+  // }, []);
 
   // const [showPopup, setShowPopup] = useState(false);
 
-  // useEffect(() => {
-  //   const timer = setTimeout(() => {
-  //     setShowPopup(true);
-  //   }, 1000);
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setShowPopup(true);
+    }, 1000);
 
-  //   return () => clearTimeout(timer);
-  // }, []);
+    return () => clearTimeout(timer);
+  }, []);
 
   useEffect(() => {
     AOS.init({

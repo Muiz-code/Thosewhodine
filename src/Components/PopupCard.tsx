@@ -22,11 +22,11 @@ const PopupCard: React.FC<PopupCardProps> = ({ onClose }) => {
   return (
     <div
       onClick={handleBackdropClick}
-      className="fixed inset-0 bg-black/50 z-50 flex items-center justify-center h-[100vh] transition-opacity duration-300"
+      className="fixed inset-0 bg-black/50 z-50 flex items-center justify-center h-[100vh]  transition-opacity duration-300"
     >
       <div
         onClick={(e) => e.stopPropagation()}
-        className="relative bg-white w-[95%] max-w-4xl md:h-[60%] h-[50%px] rounded-xl shadow-xl flex flex-col md:flex-row overflow-hidden"
+        className="relative bg-white w-[95%] max-w-4xl md:h-[60%] h-auto rounded-xl shadow-xl flex flex-col md:flex-row overflow-hidden"
       >
         {/* Close Button */}
         <button
@@ -38,9 +38,9 @@ const PopupCard: React.FC<PopupCardProps> = ({ onClose }) => {
         </button>
 
         {/* Left: Form */}
-        <div className="w-[80%] md:w-1/2 bg-[#f8f9fa] p-8 md:p-10 flex flex-col justify-center gap-10">
+        <div className="w-[100%] md:w-1/2 bg-[#f8f9fa] p-5 md:p-10 flex flex-col justify-center md:gap-10 gap-3">
           <div>
-            <h2 className="md:text-5xl text-3xl font-bold montez textSpace2 capitalize text-[#2B3210]">
+            <h2 className="md:text-5xl text-2xl font-bold montez textSpace2 capitalize text-[#2B3210]">
               Join TWD.
             </h2>
 
@@ -55,7 +55,7 @@ const PopupCard: React.FC<PopupCardProps> = ({ onClose }) => {
             method="POST"
             target="_blank"
             onSubmit={() => setTimeout(onClose, 100)}
-            className="flex flex-col gap-3 w-full space-y-6"
+            className="flex flex-col md:gap-3 gap-1 w-full md:space-y-6 space-y-2"
           >
             <div className="flex gap-3 w-full">
               <input

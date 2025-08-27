@@ -26,7 +26,7 @@ const AboutUs = () => {
       </div>
 
       {/* Meet the founders */}
-      <div className="w-[100%] mt-2 gap-0 flex flex-col justify-between md:border-0 border-1 md:h-auto h-[75vh] ">
+      <div className="w-[100%] mt-2 gap-0 flex flex-col justify-between md:border-0 md:h-auto h-[75vh] ">
         <h1 className="text-[#2B3210] md:text-4xl text-3xl font-bold montez textSpace2 md:p-0 pl-1 pt-1">
           Meet the founders
         </h1>
@@ -45,7 +45,7 @@ const AboutUs = () => {
               speed={300}
             />
             <TypewriterText
-              text="  Client Lead"
+              text="Client Lead"
               style1="md:text-lg text-sm font-bold montez textSpace2"
               speed={700}
             />
@@ -70,7 +70,7 @@ const AboutUs = () => {
                 speed={300}
               />
               <TypewriterText
-                text="- Creative Director"
+                text="Creative Director"
                 style1="md:text-lg text-sm font-bold montez textSpace2"
                 speed={700}
               />
@@ -82,7 +82,7 @@ const AboutUs = () => {
                 speed={300}
               />
               <TypewriterText
-                text="- Operations & Events Manager"
+                text="Operations & Events Manager"
                 style1="md:text-lg text-sm font-bold montez textSpace2"
                 speed={700}
               />
