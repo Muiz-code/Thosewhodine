@@ -12,7 +12,7 @@ import LandingPage from "./pages/LandingPage";
 import Preloader from "./Components/Preloader";
 import EventDetail from "./Components/EventDetails";
 
-const MEASUREMENT_ID = "G-K1HJ5JCS7Z";
+const MEASUREMENT_ID = "G-SSXJSYG891";
 
 // Initialize GA4
 ReactGA.initialize(MEASUREMENT_ID);
