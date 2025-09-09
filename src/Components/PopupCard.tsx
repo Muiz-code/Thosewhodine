@@ -51,7 +51,7 @@ const PopupCard: React.FC<PopupCardProps> = ({ onClose }) => {
             </p>
           </div>
           <form
-            action="https://formspree.io/f/xblkogvr"
+            action="https://formspree.io/f/mpwjzvey"
             method="POST"
             target="_blank"
             onSubmit={() => setTimeout(onClose, 100)}

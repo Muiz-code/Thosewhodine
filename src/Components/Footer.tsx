@@ -22,7 +22,7 @@ const Footer: React.FC = () => {
 
         <div className="md:w-[60%] w-[100%] p-8 md:p-10 flex flex-col justify-center gap-10 md:bg-black bg-black/30 h-[100%]">
           <form
-            action="https://formspree.io/f/xblkogvr"
+            action="https://formspree.io/f/mpwjzvey"
             method="POST"
             target="_blank"
             className="flex flex-col gap-3 w-full space-y-6"

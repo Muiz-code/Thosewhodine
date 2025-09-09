@@ -190,7 +190,7 @@ const ConsultationForm: React.FC = () => {
 
       <div className="flex w-full">
         <form
-          action="https://formspree.io/f/xblkogvr"
+          action="https://formspree.io/f/mpwjzvey"
           method="POST"
           onSubmit={handleSubmit}
           className="space-y-12 w-full md:w-[60%]"
