@@ -103,12 +103,75 @@ const ConsultationForm: React.FC = () => {
   const nextStep = () => setCurrentStep((s) => s + 1);
   const prevStep = () => setCurrentStep((s) => s - 1);
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    console.log("Form submitted:", formData);
-    alert("Thank you for your submission! We will be in touch shortly.");
-  };
 
+    const form = e.currentTarget;
+    // This is the key change: create a FormData object from your state, not the DOM
+    const formStateData = new FormData();
+    Object.entries(formData).forEach(([key, value]) => {
+      // Handle array values (e.g., checkboxes)
+      if (Array.isArray(value)) {
+        value.forEach((item) => formStateData.append(key, item));
+      } else {
+        formStateData.append(key, value);
+      }
+    });
+
+    try {
+      const response = await fetch(form.action, {
+        method: form.method,
+        body: formStateData, // Use the new FormData object
+        headers: {
+          Accept: "application/json",
+        },
+      });
+
+      if (response.ok) {
+        alert("Thank you for your submission! We will be in touch shortly.");
+        console.log("Form submitted successfully!");
+        // Reset the form fields and state
+        form.reset(); // This is still useful for resetting uncontrolled fields
+        setFormData({
+          firstName: "",
+          lastName: "",
+          email: "",
+          phone: "",
+          eventTime: "",
+          eventType: "",
+          eventDate: "",
+          numberOfGuests: "",
+          budget: "",
+          venue: "",
+          indoorsOrOutdoors: "",
+          occasion: "",
+          aesthetic: "",
+          colorPalette: "",
+          decorElements: "",
+          tableSetup: "",
+          otherTableSetup: "",
+          inspirationPhotos: "",
+          mealType: "",
+          otherMealType: "",
+          preferredCuisine: "",
+          otherPreferredCuisine: "",
+          customMenu: "",
+          beverages: "",
+          dessertCourse: "",
+          musicEntertainment: "",
+          customItems: [],
+          additionalServices: [],
+        });
+        setCurrentStep(1); // Go back to the first step
+      } else {
+        console.error("Form submission failed.");
+        alert("There was an issue with your submission. Please try again.");
+      }
+    } catch (error) {
+      console.error("Error during form submission:", error);
+      alert("There was an error. Please try again later.");
+    }
+  };
   return (
     <div
       id="work-with-us"
@@ -118,6 +181,7 @@ const ConsultationForm: React.FC = () => {
         <h2 className="md:text-4xl text-3xl font-bold montez textSpace2">
           Consultation form
         </h2>
+
         <p className="text-[#2b3210] md:text-xl text-[15px] playfair mb-4">
           Want to throw an unforgettable Dinner Party? Fill the form below to
           get started!
@@ -125,19 +189,26 @@ const ConsultationForm: React.FC = () => {
       </div>
 
       <div className="flex w-full">
-        <form onSubmit={handleSubmit} className="space-y-12 w-full md:w-[60%]">
+        <form
+          action="https://formspree.io/f/xblkogvr"
+          method="POST"
+          onSubmit={handleSubmit}
+          className="space-y-12 w-full md:w-[60%]"
+        >
           {/* Step 1: Contact Information */}
           {currentStep === 1 && (
             <div>
               <h3 className="md:text-3xl text-2xl font-bold montez text-[#2B3210] mb-6">
                 Contact Information
               </h3>
+
               <div>
                 <div className="space-y-6">
                   <div>
                     <label className="block md:text-xl text-[15px] font-medium text-[#2B3210] playfair mb-2">
                       Full Name
                     </label>
+
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                       <input
                         type="text"
@@ -148,6 +219,7 @@ const ConsultationForm: React.FC = () => {
                         required
                         className="block w-full md:text-xl text-[13px] rounded-md border-[#2B3210] outline-0 p-2 border-b text-[#2b3210] playfair"
                       />
+
                       <input
                         type="text"
                         name="lastName"
@@ -164,7 +236,7 @@ const ConsultationForm: React.FC = () => {
                       htmlFor="email"
                       className="block md:text-xl text-[15px] font-medium text-[#2B3210] playfair mb-2"
                     >
-                      Email
+                      Emai
                     </label>
                     <input
                       type="email"
@@ -197,25 +269,26 @@ const ConsultationForm: React.FC = () => {
                   </div>
                 </div>
               </div>
+
               <div className="flex justify-between mt-6">
                 <div />
                 <button
                   type="button"
                   onClick={nextStep}
-                  className="px-6 py-2 bg-[#2B3210] text-white rounded playfair"
+                  className="px-6 py-2 bg-[#2B3210] text-white rounded playfair cursor-pointer"
                 >
                   Next
                 </button>
               </div>
             </div>
           )}
-
           {/* Step 2: Event Details */}
           {currentStep === 2 && (
             <div>
               <h3 className="md:text-3xl text-2xl font-bold montez text-[#2B3210] mb-6">
                 Event Details
               </h3>
+
               <div className="space-y-6">
                 <div>
                   <label
@@ -234,18 +307,20 @@ const ConsultationForm: React.FC = () => {
                   >
                     <option value="">Select an event type</option>
                     <option value="dinnerParty">Dinner Party</option>
+
                     <option value="corporate">Corporate Event</option>
                     <option value="wedding">Wedding</option>
                     <option value="other">Other</option>
                   </select>
                 </div>
+
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div>
                     <label
                       htmlFor="eventDate"
                       className="block md:text-xl text-[15px] font-medium text-[#2B3210] playfair mb-2"
                     >
-                      Event Date
+                      Event Dat
                     </label>
                     <input
                       type="date"
@@ -262,7 +337,7 @@ const ConsultationForm: React.FC = () => {
                       htmlFor="eventTime"
                       className="block md:text-xl text-[15px] font-medium text-[#2B3210] playfair mb-2"
                     >
-                      Event Start Time
+                      Event Start Tim
                     </label>
                     <input
                       type="time"
@@ -274,6 +349,7 @@ const ConsultationForm: React.FC = () => {
                     />
                   </div>
                 </div>
+
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div>
                     <label
@@ -282,6 +358,7 @@ const ConsultationForm: React.FC = () => {
                     >
                       No. Of Guests
                     </label>
+
                     <input
                       type="number"
                       id="numberOfGuests"
@@ -300,43 +377,47 @@ const ConsultationForm: React.FC = () => {
                     >
                       Budget
                     </label>
-                    <input
-                      type="text"
-                      id="budget"
-                      name="budget"
-                      value={formData.budget}
-                      onChange={handleChange}
-                      placeholder="e.g., $1000 or Flexible"
-                      className="block w-full md:text-xl text-[13px] rounded-md border-[#2B3210] outline-0 p-2 border-b text-[#2b3210] playfair"
-                    />
+                    <div className="flex items-center">
+                      <input
+                        type="text"
+                        id="budget"
+                        name="budget"
+                        value={formData.budget}
+                        onChange={handleChange}
+                        placeholder="e.g., 1000 or Flexible"
+                        className="block w-full md:text-xl text-[13px] rounded-md border-[#2B3210] outline-0 p-2 border-b text-[#2b3210] playfair"
+                      />
+                    </div>
                   </div>
                 </div>
               </div>
+
               <div className="flex justify-between mt-6">
                 <button
                   type="button"
                   onClick={prevStep}
-                  className="px-6 py-2 bg-gray-400 text-white rounded playfair"
+                  className="px-6 py-2 bg-gray-400 text-white rounded playfair cursor-pointer"
                 >
                   Back
                 </button>
+
                 <button
                   type="button"
                   onClick={nextStep}
-                  className="px-6 py-2 bg-[#2B3210] text-white rounded playfair"
+                  className="px-6 py-2 bg-[#2B3210] text-white rounded playfair cursor-pointer"
                 >
                   Next
                 </button>
               </div>
             </div>
           )}
-
           {/* Step 3: Venue & Setup */}
           {currentStep === 3 && (
             <div>
               <h3 className="md:text-3xl text-2xl font-bold montez text-[#2B3210] mb-6">
                 Venue & Setup
               </h3>
+
               <div className="space-y-6">
                 <div>
                   <label className="block md:text-xl text-[15px] font-medium text-[#2B3210] playfair mb-2">
@@ -354,6 +435,7 @@ const ConsultationForm: React.FC = () => {
                       />
                       <span className="ml-2">Have a venue</span>
                     </label>
+
                     <label className="inline-flex items-center">
                       <input
                         type="radio"
@@ -367,6 +449,7 @@ const ConsultationForm: React.FC = () => {
                     </label>
                   </div>
                 </div>
+
                 <div>
                   <label className="block md:text-xl text-[15px] font-medium text-[#2B3210] playfair mb-2">
                     Would the event be indoors or outdoors?
@@ -383,6 +466,7 @@ const ConsultationForm: React.FC = () => {
                       />
                       <span className="ml-2">Indoors</span>
                     </label>
+
                     <label className="inline-flex items-center">
                       <input
                         type="radio"
@@ -396,6 +480,7 @@ const ConsultationForm: React.FC = () => {
                     </label>
                   </div>
                 </div>
+
                 <div>
                   <label className="block md:text-xl text-[15px] font-medium text-[#2B3210] playfair mb-2">
                     What kind of table setup are you envisioning?
@@ -412,6 +497,7 @@ const ConsultationForm: React.FC = () => {
                       />
                       <span className="ml-2">Long Table</span>
                     </label>
+
                     <label className="inline-flex items-center">
                       <input
                         type="radio"
@@ -423,6 +509,7 @@ const ConsultationForm: React.FC = () => {
                       />
                       <span className="ml-2">Round Table</span>
                     </label>
+
                     <label className="inline-flex items-center">
                       <input
                         type="radio"
@@ -434,6 +521,7 @@ const ConsultationForm: React.FC = () => {
                       />
                       <span className="ml-2">Family Style</span>
                     </label>
+
                     <label className="inline-flex items-center">
                       <input
                         type="radio"
@@ -445,6 +533,7 @@ const ConsultationForm: React.FC = () => {
                       />
                       <span className="ml-2">Other:</span>
                     </label>
+
                     {formData.tableSetup === "Other" && (
                       <input
                         type="text"
@@ -458,31 +547,33 @@ const ConsultationForm: React.FC = () => {
                   </div>
                 </div>
               </div>
+
               <div className="flex justify-between mt-6">
                 <button
                   type="button"
                   onClick={prevStep}
-                  className="px-6 py-2 bg-gray-400 text-white rounded playfair"
+                  className="px-6 py-2 bg-gray-400 text-white rounded playfair cursor-pointer"
                 >
                   Back
                 </button>
+
                 <button
                   type="button"
                   onClick={nextStep}
-                  className="px-6 py-2 bg-[#2B3210] text-white rounded playfair"
+                  className="px-6 py-2 bg-[#2B3210] text-white rounded playfair cursor-pointer"
                 >
                   Next
                 </button>
               </div>
             </div>
           )}
-
           {/* Step 4: Aesthetic & Decor */}
           {currentStep === 4 && (
             <div>
               <h3 className="md:text-3xl text-2xl font-bold montez text-[#2B3210] mb-6">
                 Aesthetic & Decor
               </h3>
+
               <div className="space-y-6">
                 <div>
                   <label
@@ -500,6 +591,7 @@ const ConsultationForm: React.FC = () => {
                     className="mt-2 block w-full md:text-xl text-[13px] rounded-md border-[#2B3210] outline-0 p-2 border-b text-[#2b3210] playfair"
                   />
                 </div>
+
                 <div>
                   <label
                     htmlFor="aesthetic"
@@ -517,6 +609,7 @@ const ConsultationForm: React.FC = () => {
                     className="mt-2 block w-full md:text-xl text-[13px] rounded-md border-[#2B3210] outline-0 p-2 border-b text-[#2b3210] playfair"
                   />
                 </div>
+
                 <div>
                   <label
                     htmlFor="colorPalette"
@@ -533,6 +626,7 @@ const ConsultationForm: React.FC = () => {
                     className="mt-2 block w-full md:text-xl text-[13px] rounded-md border-[#2B3210] outline-0 p-2 border-b text-[#2b3210] playfair"
                   />
                 </div>
+
                 <div>
                   <label
                     htmlFor="decorElements"
@@ -549,6 +643,7 @@ const ConsultationForm: React.FC = () => {
                     className="mt-2 block w-full md:text-xl text-[13px] rounded-md border-[#2B3210] outline-0 p-2 border-b text-[#2b3210] playfair"
                   />
                 </div>
+
                 <div>
                   <label
                     htmlFor="inspirationPhotos"
@@ -568,31 +663,33 @@ const ConsultationForm: React.FC = () => {
                   />
                 </div>
               </div>
+
               <div className="flex justify-between mt-6">
                 <button
                   type="button"
                   onClick={prevStep}
-                  className="px-6 py-2 bg-gray-400 text-white rounded playfair"
+                  className="px-6 py-2 bg-gray-400 text-white rounded playfair cursor-pointer"
                 >
                   Back
                 </button>
+
                 <button
                   type="button"
                   onClick={nextStep}
-                  className="px-6 py-2 bg-[#2B3210] text-white rounded playfair"
+                  className="px-6 py-2 bg-[#2B3210] text-white rounded playfair cursor-pointer"
                 >
                   Next
                 </button>
               </div>
             </div>
           )}
-
           {/* Step 5: Meal & Beverages */}
           {currentStep === 5 && (
             <div>
               <h3 className="md:text-3xl text-2xl font-bold montez text-[#2B3210] mb-6">
                 Meal & Beverages
               </h3>
+
               <div className="space-y-6">
                 <div>
                   <label className="block md:text-xl text-[15px] font-medium text-[#2B3210] playfair mb-2">
@@ -610,6 +707,7 @@ const ConsultationForm: React.FC = () => {
                       />
                       <span className="ml-2">Plated Dinner</span>
                     </label>
+
                     <label className="inline-flex items-center">
                       <input
                         type="radio"
@@ -621,6 +719,7 @@ const ConsultationForm: React.FC = () => {
                       />
                       <span className="ml-2">Family-style</span>
                     </label>
+
                     <label className="inline-flex items-center">
                       <input
                         type="radio"
@@ -632,6 +731,7 @@ const ConsultationForm: React.FC = () => {
                       />
                       <span className="ml-2">Buffet</span>
                     </label>
+
                     <label className="inline-flex items-center">
                       <input
                         type="radio"
@@ -643,6 +743,7 @@ const ConsultationForm: React.FC = () => {
                       />
                       <span className="ml-2">Tasting Menu</span>
                     </label>
+
                     <label className="inline-flex items-center">
                       <input
                         type="radio"
@@ -654,6 +755,7 @@ const ConsultationForm: React.FC = () => {
                       />
                       <span className="ml-2">Other:</span>
                     </label>
+
                     {formData.mealType === "Other" && (
                       <input
                         type="text"
@@ -666,6 +768,7 @@ const ConsultationForm: React.FC = () => {
                     )}
                   </div>
                 </div>
+
                 <div>
                   <label className="block md:text-xl text-[15px] font-medium text-[#2B3210] playfair mb-2">
                     Any preferred cuisine(s)?
@@ -682,6 +785,7 @@ const ConsultationForm: React.FC = () => {
                       />
                       <span className="ml-2">Italian</span>
                     </label>
+
                     <label className="inline-flex items-center">
                       <input
                         type="radio"
@@ -693,6 +797,7 @@ const ConsultationForm: React.FC = () => {
                       />
                       <span className="ml-2">Nigerian</span>
                     </label>
+
                     <label className="inline-flex items-center">
                       <input
                         type="radio"
@@ -704,6 +809,7 @@ const ConsultationForm: React.FC = () => {
                       />
                       <span className="ml-2">Continental</span>
                     </label>
+
                     <label className="inline-flex items-center">
                       <input
                         type="radio"
@@ -715,6 +821,7 @@ const ConsultationForm: React.FC = () => {
                       />
                       <span className="ml-2">Other:</span>
                     </label>
+
                     {formData.preferredCuisine === "Other" && (
                       <input
                         type="text"
@@ -727,6 +834,7 @@ const ConsultationForm: React.FC = () => {
                     )}
                   </div>
                 </div>
+
                 <div>
                   <label className="block md:text-xl text-[15px] font-medium text-[#2B3210] playfair mb-2">
                     Do you want to customise your menu or shall we?
@@ -743,6 +851,7 @@ const ConsultationForm: React.FC = () => {
                       />
                       <span className="ml-2">Customise myself</span>
                     </label>
+
                     <label className="inline-flex items-center">
                       <input
                         type="radio"
@@ -758,6 +867,7 @@ const ConsultationForm: React.FC = () => {
                     </label>
                   </div>
                 </div>
+
                 <div>
                   <label
                     htmlFor="beverages"
@@ -774,6 +884,7 @@ const ConsultationForm: React.FC = () => {
                     className="mt-2 block w-full md:text-xl text-[13px] rounded-md border-[#2B3210] outline-0 p-2 border-b text-[#2b3210] playfair"
                   />
                 </div>
+
                 <div>
                   <label className="block md:text-xl text-[15px] font-medium text-[#2B3210] playfair mb-2">
                     Would you like a dessert course or a cake?
@@ -790,6 +901,7 @@ const ConsultationForm: React.FC = () => {
                       />
                       <span className="ml-2">Yes</span>
                     </label>
+
                     <label className="inline-flex items-center">
                       <input
                         type="radio"
@@ -804,31 +916,33 @@ const ConsultationForm: React.FC = () => {
                   </div>
                 </div>
               </div>
+
               <div className="flex justify-between mt-6">
                 <button
                   type="button"
                   onClick={prevStep}
-                  className="px-6 py-2 bg-gray-400 text-white rounded playfair"
+                  className="px-6 py-2 bg-gray-400 text-white rounded playfair cursor-pointer"
                 >
                   Back
                 </button>
+
                 <button
                   type="button"
                   onClick={nextStep}
-                  className="px-6 py-2 bg-[#2B3210] text-white rounded playfair"
+                  className="px-6 py-2 bg-[#2B3210] text-white rounded playfair cursor-pointer"
                 >
                   Next
                 </button>
               </div>
             </div>
           )}
-
           {/* Step 6: Additional Services + Submit */}
           {currentStep === 6 && (
             <div>
               <h3 className="md:text-3xl text-2xl font-bold montez text-[#2B3210] mb-6">
                 Additional Services
               </h3>
+
               <div className="space-y-6">
                 <div>
                   <label className="block md:text-xl text-[15px] font-medium text-[#2B3210] playfair mb-2">
@@ -846,6 +960,7 @@ const ConsultationForm: React.FC = () => {
                       />
                       <span className="ml-2">Yes</span>
                     </label>
+
                     <label className="inline-flex items-center">
                       <input
                         type="radio"
@@ -859,6 +974,7 @@ const ConsultationForm: React.FC = () => {
                     </label>
                   </div>
                 </div>
+
                 <div>
                   <label className="block md:text-xl text-[15px] font-medium text-[#2B3210] playfair mb-2">
                     Are you interested in customised place cards, printed menus
@@ -876,6 +992,7 @@ const ConsultationForm: React.FC = () => {
                       />
                       <span className="ml-2">Place Cards</span>
                     </label>
+
                     <label className="inline-flex items-center">
                       <input
                         type="checkbox"
@@ -887,6 +1004,7 @@ const ConsultationForm: React.FC = () => {
                       />
                       <span className="ml-2">Printed Menu</span>
                     </label>
+
                     <label className="inline-flex items-center">
                       <input
                         type="checkbox"
@@ -900,6 +1018,7 @@ const ConsultationForm: React.FC = () => {
                     </label>
                   </div>
                 </div>
+
                 <div>
                   <label className="block md:text-xl text-[15px] font-medium text-[#2B3210] playfair mb-2">
                     Any additional services you'd like?
@@ -914,10 +1033,10 @@ const ConsultationForm: React.FC = () => {
                         checked={formData.additionalServices.includes(
                           "Photographer"
                         )}
-                        className="form-checkbox"
                       />
                       <span className="ml-2">Photographer</span>
                     </label>
+
                     <label className="inline-flex items-center">
                       <input
                         type="checkbox"
@@ -925,10 +1044,10 @@ const ConsultationForm: React.FC = () => {
                         value="DJ"
                         onChange={handleChange}
                         checked={formData.additionalServices.includes("DJ")}
-                        className="form-checkbox"
                       />
                       <span className="ml-2">DJ</span>
                     </label>
+
                     <label className="inline-flex items-center">
                       <input
                         type="checkbox"
@@ -938,24 +1057,24 @@ const ConsultationForm: React.FC = () => {
                         checked={formData.additionalServices.includes(
                           "Servers"
                         )}
-                        className="form-checkbox"
                       />
                       <span className="ml-2">Servers</span>
                     </label>
                   </div>
                 </div>
               </div>
+
               <div className="flex justify-between mt-6">
                 <button
                   type="button"
                   onClick={prevStep}
-                  className="px-6 py-2 bg-gray-400 text-white rounded playfair"
+                  className="px-6 py-2 bg-gray-400 text-white rounded playfair cursor-pointer"
                 >
                   Back
                 </button>
                 <button
                   type="submit"
-                  className="px-6 py-2 bg-[#2B3210] text-white rounded playfair"
+                  className="px-6 py-2 bg-[#2B3210] text-white rounded playfair cursor-pointer"
                 >
                   Submit
                 </button>

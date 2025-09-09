@@ -26,13 +26,13 @@ const AboutUs = () => {
       </div>
 
       {/* Meet the founders */}
-      <div className="w-[100%] mt-2 gap-0 flex flex-col justify-between md:border-0 md:h-auto h-[75vh] ">
+      <div className="relative w-[100%] mt-2 md:gap-0 gap-50 flex flex-col  md:h-auto h-auto ">
         <h1 className="text-[#2B3210] md:text-4xl text-3xl font-bold montez textSpace2 md:p-0 pl-1 pt-1">
           Meet the founders
         </h1>
 
         <div
-          className="relative w-[100%] flex flex-col items-center justify-center"
+          className="w-[100%] flex flex-col items-center justify-center"
           data-aos="fade-zoom-in"
           data-aos-delay="100"
           data-aos-offset="0"
@@ -62,7 +62,7 @@ const AboutUs = () => {
               speed={700}
             />
           </div>
-          <div className="flex flex-col items-end border">
+          <div className="flex flex-col items-end">
             <div className="absolute flex flex-col md:top-[5%] bottom-90 md:right-[32%] right-2 gap-3 text-[#2B3210] text-center">
               <TypewriterText
                 text="Tamilore Bolu"

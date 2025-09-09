@@ -19,10 +19,34 @@ const ContactForm: React.FC = () => {
     }));
   };
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    console.log("Contact form submitted:", formData);
-    alert("Thank you for your message! We will be in touch shortly.");
+
+    const form = e.currentTarget;
+    const formData = new FormData(form);
+
+    try {
+      const response = await fetch(form.action, {
+        method: form.method,
+        body: formData,
+        headers: {
+          Accept: "application/json",
+        },
+      });
+
+      if (response.ok) {
+        alert("Thank you for your message! We will be in touch shortly.");
+        console.log("Contact form submitted successfully!");
+        // Optional: Reset the form fields after successful submission
+        // form.reset();
+      } else {
+        console.error("Form submission failed.");
+        alert("There was an issue with your submission. Please try again.");
+      }
+    } catch (error) {
+      console.error("Error during form submission:", error);
+      alert("There was an error. Please try again later.");
+    }
   };
 
   return (
@@ -41,7 +65,12 @@ const ContactForm: React.FC = () => {
               Reach out to us!
             </p>
           </div>
-          <form onSubmit={handleSubmit} className="space-y-6 w-full">
+          <form
+            action="https://formspree.io/f/mpwjzvey"
+            method="POST"
+            onSubmit={handleSubmit}
+            className="space-y-6 w-full"
+          >
             <div>
               <label
                 htmlFor="name"
@@ -117,7 +146,7 @@ const ContactForm: React.FC = () => {
             <div>
               <button
                 type="submit"
-                className="w-full flex justify-center py-3 px-4 border border-transparent rounded-md shadow-sm font-medium text-[#E5E2D9] bg-[#2B3210] hover:bg-[#2B3210]/50 hover:text-[#2B3210] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 hover:scale-102 transition-transform duration-300"
+                className="w-full flex justify-center py-3 px-4 border border-transparent rounded-md shadow-sm font-medium text-[#E5E2D9] bg-[#2B3210] hover:bg-[#2B3210]/50 hover:text-[#2B3210] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 hover:scale-102 transition-transform duration-300 cursor-pointer playfair"
               >
                 Send Message
               </button>
