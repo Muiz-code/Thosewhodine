@@ -53,7 +53,7 @@ const Home = () => {
 
       <div className="flex flex-col items-center justify-center h-full text-white bg-black/30">
         <h1 className="text-[50px] md:text-[100px] md:w-[85%] w-[99%] text-center md:p-0 p-[2.5px] montez text-[#fff] textSpace1">
-          Flavourful Journey’s, Curated Moments.
+          Flavourful Journeys, Curated Moments.
         </h1>
         {/* 
         <TypewriterText
