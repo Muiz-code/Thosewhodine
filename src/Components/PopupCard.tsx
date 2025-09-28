@@ -46,8 +46,7 @@ const PopupCard: React.FC<PopupCardProps> = ({ onClose }) => {
 
             <p className="text-[#2b3210] text-[13px] playfair mt-2">
               Stay in the loop with Those Who Dine and be the first to receive
-              updates on our next unforgettable dinner parties and wellness
-              experiences.
+              updates on our next unforgettable dinner parties.
             </p>
           </div>
           <form
