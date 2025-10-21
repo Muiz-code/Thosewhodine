@@ -236,7 +236,7 @@ const ConsultationForm: React.FC = () => {
                       htmlFor="email"
                       className="block md:text-xl text-[15px] font-medium text-[#2B3210] playfair mb-2"
                     >
-                      Emai
+                      Email
                     </label>
                     <input
                       type="email"
