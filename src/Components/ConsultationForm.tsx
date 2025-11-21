@@ -175,7 +175,7 @@ const ConsultationForm: React.FC = () => {
   return (
     <div
       id="work-with-us"
-      className="md:px-[10%] md:py-[2%] md:pb-[6%] p-3 bg-[#5056314e] flex flex-col relative h-auto w-full mx-auto"
+      className="md:px-[10%] md:py-[2%] pt-10 md:pb-[6%] p-3 bg-[#5056314e] flex flex-col h-auto w-full mx-auto"
     >
       <div className="mb-2 flex flex-col md:gap-1 gap-1">
         <h2 className="md:text-4xl text-3xl font-bold montez textSpace2">

@@ -43,6 +43,7 @@ const MainLayout = () => {
       "about-us",
       "what-we-do",
       "events",
+      "upcoming-events",
       "work-with-us",
       "contact",
       "newsletter",
@@ -159,6 +160,16 @@ const MainLayout = () => {
                   }
                 >
                   Events
+                </a>
+              </li>
+              <li>
+                <a
+                  href="#upcoming-events"
+                  className={
+                    activeSection === "upcoming-events" ? "active-nav-link" : ""
+                  }
+                >
+                  Dine at Night
                 </a>
               </li>
               <li>

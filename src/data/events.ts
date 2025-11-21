@@ -94,3 +94,13 @@ export const events = [
     ],
   },
 ];
+export const Upcomingevents = [
+  {
+    id: "event-one",
+    title: "Dine at Night",
+    coverImage:
+      "https://res.cloudinary.com/dhhvxjczm/image/upload/v1763729475/dine_night_x2mru8.jpg",
+    coverImage2:
+      "https://res.cloudinary.com/dhhvxjczm/image/upload/v1763739021/dine_at_night2_zc1n1w.jpg",
+  },
+];

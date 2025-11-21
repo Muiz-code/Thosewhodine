@@ -31,7 +31,6 @@ function App() {
     createRoutesFromElements(
       <Route>
         <Route element={<MainLayout />}>
-          {/* Renders the full single-scroll website on the homepage */}
           <Route path="/" element={<LandingPage />} />
         </Route>
         <Route path="/events/:eventId" element={<EventDetail />} />
@@ -44,10 +43,8 @@ function App() {
       {showPreloader ? (
         <Preloader />
       ) : (
-        // The main layout wrapper with a footer at the bottom
         <div className="flex flex-col min-h-screen">
           <RouterProvider router={router} />
-          {/* <Footer /> */}
         </div>
       )}
     </>

@@ -8,6 +8,7 @@ import Gallery from "../Components/Gallery";
 import ConsultationForm from "../Components/ConsultationForm";
 import ContactForm from "../Components/ContactUs";
 import PopupCard from "../Components/PopupCard";
+import UpcomingEvents from "../Components/UpcomingEvents";
 
 const LandingPage = () => {
   const [showPopup, setShowPopup] = useState(false);
@@ -51,6 +52,7 @@ const LandingPage = () => {
       <AboutUs />
       <WhatWeDo />
       <Gallery />
+      <UpcomingEvents />
       <ConsultationForm />
       <ContactForm />
     </>
