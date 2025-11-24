@@ -1,11 +1,10 @@
-import sketchedWomen from "../assets/6.png";
 import TypewriterText from "./TypewriterText";
 
 const AboutUs = () => {
   return (
     <div
       id="about-us"
-      className="md:px-[10%] md:py-[2%] p-3 md:pt-10 pt-5 bg-[#E5E2D9] flex flex-col"
+      className="md:px-[10%] md:py-[2%] p-3 md:pt-10 pt-5 bg-[#E5E2D9] flex flex-col h-auto"
     >
       <div className="flex flex-col md:gap-5 gap-2 ">
         <h1 className="text-[#2B3210] md:text-4xl text-3xl font-bold montez textSpace2">
@@ -37,7 +36,13 @@ const AboutUs = () => {
           data-aos-delay="100"
           data-aos-offset="0"
         >
-          <img src={sketchedWomen} className="w-[100%] hidden md:flex" alt="" />
+          <img
+            src={
+              "https://res.cloudinary.com/dhhvxjczm/image/upload/v1763927504/6_jqjked.png"
+            }
+            className="w-[100%] hidden md:flex"
+            alt=""
+          />
           <div className="absolute flex flex-col md:top-[3%] bottom-98 md:left-10 left-1 gap-3 text-[#2B3210] text-center">
             <TypewriterText
               text="Ajibola Ogunranti"
@@ -88,7 +93,13 @@ const AboutUs = () => {
               />
             </div>
           </div>
-          <img src={sketchedWomen} className="flex md:hidden" alt="" />
+          <img
+            src={
+              "https://res.cloudinary.com/dhhvxjczm/image/upload/v1763927504/6_jqjked.png"
+            }
+            className="flex md:hidden"
+            alt=""
+          />
         </div>
       </div>
     </div>

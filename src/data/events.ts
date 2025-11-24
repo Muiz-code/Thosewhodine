@@ -1,18 +1,5 @@
-import img1 from "../assets/Deto30th/Deto1.webp";
 import img2 from "../assets/NigerianInspired/Nigerian-Inspired.jpg";
 import img3 from "../assets/TWDxChefBenedict/TWDxChefBenedict.jpg";
-import img4 from "../assets/menu.jpg";
-import deto1 from "../assets/Deto30th/Deto1.webp";
-import deto2 from "../assets/Deto30th/Deto2.webp";
-import deto3 from "../assets/Deto30th/Deto3.webp";
-import deto4 from "../assets/Deto30th/Deto4.webp";
-import deto5 from "../assets/Deto30th/Deto5.webp";
-import deto6 from "../assets/Deto30th/Deto6.webp";
-import deto7 from "../assets/Deto30th/Detos7.webp";
-import deto8 from "../assets/Deto30th/Deto8.webp";
-import deto9 from "../assets/Deto30th/Detos9.webp";
-import deto10 from "../assets/Deto30th/Detos10.webp";
-import deto11 from "../assets/Deto30th/deto11.webp";
 import deto12 from "../assets/Deto30th/Deto12.jpeg";
 import NIB from "../assets/NigerianInspired/NIB.jpg";
 import NIB2 from "../assets/NigerianInspired/NIB2.jpg";
@@ -32,22 +19,44 @@ import Nibgif3 from "../assets/NigerianInspired/NIBgif3.gif";
 
 export const events = [
   {
+    id: "event-four",
+    title: "Olaolu & Andrewnet’s Welcome Dinner",
+    coverImage:
+      "https://res.cloudinary.com/dhhvxjczm/image/upload/v1763972627/image00005_pz3h6u.jpg",
+    gif: "https://res.cloudinary.com/dhhvxjczm/image/upload/v1763972631/image00003_x2lnxc.jpg",
+    gallery: [
+      "https://res.cloudinary.com/dhhvxjczm/image/upload/v1763972631/image00003_x2lnxc.jpg",
+      "https://res.cloudinary.com/dhhvxjczm/image/upload/v1763972630/image00012_v697w9.jpg",
+      "https://res.cloudinary.com/dhhvxjczm/image/upload/v1763972628/image00011_ilbytv.jpg",
+      "https://res.cloudinary.com/dhhvxjczm/image/upload/v1763972628/image00009_ekzako.jpg",
+      "https://res.cloudinary.com/dhhvxjczm/image/upload/v1763972628/image00010_sfb2rf.jpg",
+      "https://res.cloudinary.com/dhhvxjczm/image/upload/v1763972628/image00007_dqmtj3.jpg",
+      "https://res.cloudinary.com/dhhvxjczm/image/upload/v1763972627/image00008_scm4fl.jpg",
+      "https://res.cloudinary.com/dhhvxjczm/image/upload/v1763972627/image00006_u5v2up.jpg",
+      "https://res.cloudinary.com/dhhvxjczm/image/upload/v1763972627/image00005_pz3h6u.jpg",
+      "https://res.cloudinary.com/dhhvxjczm/image/upload/v1763972627/image00004_ssufoy.jpg",
+    ],
+  },
+  {
     id: "event-one",
     title: "Deto Black’s 30th",
-    coverImage: img1,
-    gif: gif1,
+    coverImage:
+      "https://res.cloudinary.com/dhhvxjczm/image/upload/v1763928466/Deto1_tiygum.webp",
+    gif: "https://res.cloudinary.com/dhhvxjczm/image/upload/v1763928466/Deto1_tiygum.webp",
     gallery: [
-      deto5,
-      deto3,
-      deto4,
-      deto11,
-      deto9,
-      deto6,
-      deto7,
-      deto8,
-      deto2,
-      deto10,
-      deto1,
+      "https://res.cloudinary.com/dhhvxjczm/image/upload/v1763928331/Deto5_mmebdk.webp",
+      "https://res.cloudinary.com/dhhvxjczm/image/upload/v1763928398/Deto3_t3yqzp.webp",
+      "https://res.cloudinary.com/dhhvxjczm/image/upload/v1763928322/Deto4_ktn2qm.webp",
+      "https://res.cloudinary.com/dhhvxjczm/image/upload/v1763928304/deto11_kbgu1e.webp",
+      "https://res.cloudinary.com/dhhvxjczm/image/upload/v1763928395/Detos9_k7csk8.webp",
+      "https://res.cloudinary.com/dhhvxjczm/image/upload/v1763970094/Deto6_cwct3e.png",
+      "https://res.cloudinary.com/dhhvxjczm/image/upload/v1763928502/Detos7_syul6f.webp",
+      "https://res.cloudinary.com/dhhvxjczm/image/upload/v1763928456/Deto8_rvi3jt.webp",
+      "https://res.cloudinary.com/dhhvxjczm/image/upload/v1763928449/Deto2_nlqaf5.webp",
+      "https://res.cloudinary.com/dhhvxjczm/image/upload/v1763970102/deto10_e8kd7s.png",
+      "https://res.cloudinary.com/dhhvxjczm/image/upload/v1763928466/Deto1_tiygum.webp",
+      "https://res.cloudinary.com/dhhvxjczm/image/upload/v1763970098/deto13_qe0koe.png",
+      "https://res.cloudinary.com/dhhvxjczm/image/upload/v1763929056/Deto12_vbt847.jpg",
     ],
   },
   {
@@ -81,17 +90,6 @@ export const events = [
     coverImage: img3,
     gif: gif1,
     gallery: [],
-  },
-  {
-    id: "event-four",
-    title: "More Events Coming Soon...",
-    coverImage: img4,
-    gif: gif1,
-    gallery: [
-      "https://via.placeholder.com/800x600/5733FF/FFFFFF?text=Spring+Festival+Photo+1",
-      "https://via.placeholder.com/800x600/5733FF/FFFFFF?text=Spring+Festival+Photo+2",
-      "https://via.placeholder.com/800x600/5733FF/FFFFFF?text=Spring+Festival+Photo+3",
-    ],
   },
 ];
 export const Upcomingevents = [

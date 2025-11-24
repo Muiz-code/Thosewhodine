@@ -1,10 +1,5 @@
 import TypewriterText from "./TypewriterText";
 import Card from "./HoverCard";
-import img1 from "../assets/ChefSelection.jpg";
-import img2 from "../assets/TWD Launch.jpg";
-import img3 from "../assets/Deto30th/Deto4.webp";
-import img4 from "../assets/Deto30th/Deto12.jpeg";
-// import detos from "../assets/Detos 30th 2.jpg";
 
 const WhatWeDo = () => {
   return (
@@ -35,7 +30,9 @@ const WhatWeDo = () => {
       </div>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-5 mt-10 justify-center">
         <Card
-          staticImage={img1}
+          staticImage={
+            "https://res.cloudinary.com/dhhvxjczm/image/upload/v1763927843/ChefSelection_ggssbz.jpg"
+          }
           altText="A description of the image"
           title="Chef Selection & Menu Design"
           description="We collaborate with top-tier chefs to
@@ -45,7 +42,9 @@ const WhatWeDo = () => {
             intentional, refined, and memorable."
         />
         <Card
-          staticImage={img2}
+          staticImage={
+            "https://res.cloudinary.com/dhhvxjczm/image/upload/v1763927814/TWD_Launch_itn47g.jpg"
+          }
           altText="A description of the image"
           title="Full-Service Event Management"
           description="We take care of everything so you
@@ -56,7 +55,9 @@ const WhatWeDo = () => {
             experience as a guest at their own event."
         />
         <Card
-          staticImage={img3}
+          staticImage={
+            "https://res.cloudinary.com/dhhvxjczm/image/upload/v1763928001/Deto4_raw3m9.webp"
+          }
           altText="A description of the image"
           title="Venue Sourcing & Styling"
           description="Finding the perfect setting is essential. Whether it’s a hidden gem in
@@ -67,7 +68,9 @@ const WhatWeDo = () => {
         aesthetic harmony."
         />
         <Card
-          staticImage={img4}
+          staticImage={
+            "https://res.cloudinary.com/dhhvxjczm/image/upload/v1763927999/Deto12_qcked9.jpg"
+          }
           altText="A description of the image"
           title="Concept Development & Theme Curation"
           description="No two events are the same. Our in-house creative team works closely

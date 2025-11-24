@@ -32,10 +32,6 @@ const Gallery = () => {
                 <h2 className="md:text-3xl text-xl font-bold montez textSpace2 capitalize text-white">
                   {event.title}
                 </h2>
-                {/* <div className="h-1 bg-white transition-all duration-300 w-0 group-hover:w-full "></div>
-              <p className="mt-2 text-sm playfair transition-opacity duration-300 opacity-0 group-hover:opacity-100">
-                Click to view gallery
-              </p> */}
               </div>
             </Link>
           ))}
