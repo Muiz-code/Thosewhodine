@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { useParams, useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { events } from "../data/events";
@@ -6,6 +8,65 @@ import { ChevronLeft, ChevronRight, X, House } from "lucide-react";
 // Cache configuration
 const EVENT_CACHE_PREFIX = "wellness_event_";
 const CACHE_DURATION = 60 * 60 * 1000; // 1 hour
+
+// --- NEW: versioning & build timestamp for cache-busting ---
+// Bump this on releases where you want to invalidate client caches.
+// Example: change "v1" -> "v2" when you push a change that must be fetched fresh.
+const EVENTS_CACHE_VERSION = "v1";
+const EVENTS_CACHE_VERSION_KEY = "EVENTS_CACHE_VERSION";
+
+// Build timestamp (set via env at build time to force image reloads).
+// For local/dev it will fallback to the EVENTS_CACHE_VERSION so images reload on version bump.
+const BUILD_TS =
+  (typeof window !== "undefined" && (window as any).process?.env?.REACT_APP_BUILD_TS) ||
+  EVENTS_CACHE_VERSION ||
+  String(Date.now());
+
+// Remove cached keys that use the prefix
+const clearEventCacheKeys = () => {
+  try {
+    Object.keys(localStorage).forEach((key) => {
+      if (key.startsWith(EVENT_CACHE_PREFIX)) {
+        localStorage.removeItem(key);
+      }
+    });
+  } catch (e) {
+    // ignore
+    // console.warn("clearEventCacheKeys error", e);
+  }
+};
+
+// Ensure cache version is up to date. If not, clear old cached items.
+const ensureCacheVersion = () => {
+  try {
+    const stored = localStorage.getItem(EVENTS_CACHE_VERSION_KEY);
+    if (stored !== EVENTS_CACHE_VERSION) {
+      clearEventCacheKeys();
+      localStorage.setItem(EVENTS_CACHE_VERSION_KEY, EVENTS_CACHE_VERSION);
+      console.log("🧹 Event cache cleared due to version change.");
+    }
+  } catch (e) {
+    // ignore
+    // console.warn("ensureCacheVersion error", e);
+  }
+};
+
+// Check if cache is valid (checks timestamp AND version)
+const isCacheValid = (cacheKey: string): boolean => {
+  const cached = localStorage.getItem(cacheKey);
+  if (!cached) return false;
+
+  try {
+    const { timestamp, version } = JSON.parse(cached);
+    if (version !== EVENTS_CACHE_VERSION) return false; // invalid if version mismatches
+    const timeSinceCache = Date.now() - timestamp;
+    return timeSinceCache < CACHE_DURATION;
+  } catch {
+    return false;
+  }
+};
+
+// -----------------------------------------------------------
 
 const EventDetail = () => {
   const { eventId } = useParams<{ eventId: string }>();
@@ -17,19 +78,10 @@ const EventDetail = () => {
     events.find((e) => e.id === eventId)
   );
 
-  // Check if cache is valid
-  const isCacheValid = (cacheKey: string): boolean => {
-    const cached = localStorage.getItem(cacheKey);
-    if (!cached) return false;
-
-    try {
-      const { timestamp } = JSON.parse(cached);
-      const timeSinceCache = Date.now() - timestamp;
-      return timeSinceCache < CACHE_DURATION;
-    } catch {
-      return false;
-    }
-  };
+  // Ensure cache version on mount (clears stale caches if version bumped)
+  useEffect(() => {
+    ensureCacheVersion();
+  }, []);
 
   // Scroll to top on mount
   useEffect(() => {
@@ -47,7 +99,7 @@ const EventDetail = () => {
       const cacheKey = `${EVENT_CACHE_PREFIX}${eventId}`;
 
       try {
-        // Try to load from cache first
+        // Try to load from cache first (only if still valid and correct version)
         if (isCacheValid(cacheKey)) {
           const cached = localStorage.getItem(cacheKey);
           if (cached) {
@@ -67,16 +119,21 @@ const EventDetail = () => {
         if (event) {
           setCachedEvent(event);
 
-          // Save to cache
-          localStorage.setItem(
-            cacheKey,
-            JSON.stringify({
-              timestamp: Date.now(),
-              data: event,
-            })
-          );
-
-          console.log(`✅ Event "${eventId}" cached successfully!`);
+          // Save to cache with version info
+          try {
+            localStorage.setItem(
+              cacheKey,
+              JSON.stringify({
+                timestamp: Date.now(),
+                version: EVENTS_CACHE_VERSION,
+                data: event,
+              })
+            );
+            console.log(`✅ Event "${eventId}" cached successfully!`);
+          } catch (e) {
+            // storage could fail (quota), ignore
+            // console.warn("Failed to cache event", e);
+          }
         } else {
           console.warn(`⚠️ Event "${eventId}" not found`);
           setCachedEvent(undefined);
@@ -120,12 +177,19 @@ const EventDetail = () => {
     );
   }
 
+  // Helper to append build-ts query param for cache-busting of images
+  const withBuildTs = (url: string | undefined) => {
+    if (!url) return url;
+    // if url already has query params, append with &
+    return url.includes("?") ? `${url}&v=${BUILD_TS}` : `${url}?v=${BUILD_TS}`;
+  };
+
   return (
     <div className="bg-[#E5E2D9] min-h-screen">
       {/* --- Landing GIF Section (Always shows immediately) --- */}
       <div className="relative h-[50vh] overflow-hidden">
         <img
-          src={cachedEvent.gif}
+          src={withBuildTs(cachedEvent.gif)}
           alt={`${cachedEvent.title} Landing GIF`}
           className="w-full h-[50vh] object-cover"
         />
@@ -160,7 +224,7 @@ const EventDetail = () => {
             {cachedEvent.gallery.map((src: string, index: number) => (
               <div key={index} className="mb-8 relative">
                 <img
-                  src={src}
+                  src={withBuildTs(src)}
                   alt={`${cachedEvent.title} - Image ${index + 1}`}
                   className="w-full h-auto object-cover rounded-lg shadow-md cursor-zoom-in transition-transform duration-300 hover:scale-102"
                   onClick={() => setCurrentIndex(index)}
@@ -200,7 +264,7 @@ const EventDetail = () => {
 
           {/* Image */}
           <img
-            src={cachedEvent.gallery[currentIndex]}
+            src={withBuildTs(cachedEvent.gallery[currentIndex])}
             alt="Zoomed"
             className="max-w-[90%] max-h-[90%] rounded-lg shadow-lg object-contain"
             onClick={(e) => e.stopPropagation()}

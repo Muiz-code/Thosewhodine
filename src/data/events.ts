@@ -23,9 +23,8 @@ export const events = [
     title: "Olaolu & Andrewnet’s Welcome Dinner",
     coverImage:
       "https://res.cloudinary.com/dhhvxjczm/image/upload/v1763972627/image00005_pz3h6u.jpg",
-    gif: "https://res.cloudinary.com/dhhvxjczm/image/upload/v1763972631/image00003_x2lnxc.jpg",
+    gif: "https://res.cloudinary.com/dhhvxjczm/image/upload/v1763972628/image00007_dqmtj3.jpg",
     gallery: [
-      "https://res.cloudinary.com/dhhvxjczm/image/upload/v1763972631/image00003_x2lnxc.jpg",
       "https://res.cloudinary.com/dhhvxjczm/image/upload/v1763972630/image00012_v697w9.jpg",
       "https://res.cloudinary.com/dhhvxjczm/image/upload/v1763972628/image00011_ilbytv.jpg",
       "https://res.cloudinary.com/dhhvxjczm/image/upload/v1763972628/image00009_ekzako.jpg",
