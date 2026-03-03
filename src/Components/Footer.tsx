@@ -25,6 +25,7 @@ const Footer: React.FC = () => {
             action="https://formspree.io/f/mpwjzvey"
             method="POST"
             target="_blank"
+            rel="noopener noreferrer"
             className="flex flex-col gap-3 w-full space-y-6"
           >
             <div className="flex gap-3 w-full">
@@ -68,75 +69,53 @@ const Footer: React.FC = () => {
       <footer className="p-8 md:p-12 bg-[#2B3210] md:h-[50vh] h-auto relative">
         <div className="container mx-auto">
           <div className="flex flex-col items-center text-center md:flex-row md:justify-around md:items-start md:text-left">
-            {/* Logo and Copyright Section */}
+            {/* Logo */}
             <div className="mb-6 md:mb-0 flex flex-col items-center">
               <img
                 src={logo}
                 alt="TWD Logo"
                 className="w-24 md:w-[20%] mb-4 md:absolute md:top-[30%] md:left-[5%]"
               />
-              {/* <p className="text-[#E5E2D9] playfair text-sm mt-0 md:mt-20 md:flex hidden">
-                &copy; {new Date().getFullYear()} Those Who Dine. All rights
-                reserved.
-              </p> */}
             </div>
 
-            {/* Navigation Links Section */}
-            <div className="md:mt-20 mt-0  md:mb-0">
+            {/* Navigation Links */}
+            <div className="md:mt-20 mt-0 md:mb-0">
               <h4 className="text-2xl font-bold montez text-[#E5E2D9] mb-2">
                 Explore
               </h4>
               <ul className="space-y-2 playfair text-gray-700 grid md:grid-cols-2 grid-cols-1 md:gap-5">
                 <li>
-                  <a
-                    href="#home"
-                    className="relative group text-[#E5E2D9] transition-all duration-300 hover:text-white"
-                  >
+                  <a href="#home" className="relative group text-[#E5E2D9] transition-all duration-300 hover:text-white">
                     Home
                     <span className="absolute bottom-0 left-0 w-full h-[2px] bg-white transform scale-x-0 transition-transform duration-300 group-hover:scale-x-100"></span>
                   </a>
                 </li>
                 <li>
-                  <a
-                    href="#about-us"
-                    className="relative group text-[#E5E2D9] transition-all duration-300 hover:text-white"
-                  >
+                  <a href="#about-us" className="relative group text-[#E5E2D9] transition-all duration-300 hover:text-white">
                     About Us
                     <span className="absolute bottom-0 left-0 w-full h-[2px] bg-white transform scale-x-0 transition-transform duration-300 group-hover:scale-x-100"></span>
                   </a>
                 </li>
                 <li>
-                  <a
-                    href="#what-we-do"
-                    className="relative group text-[#E5E2D9] transition-all duration-300 hover:text-white"
-                  >
+                  <a href="#what-we-do" className="relative group text-[#E5E2D9] transition-all duration-300 hover:text-white">
                     What We Do
                     <span className="absolute bottom-0 left-0 w-full h-[2px] bg-white transform scale-x-0 transition-transform duration-300 group-hover:scale-x-100"></span>
                   </a>
                 </li>
                 <li>
-                  <a
-                    href="#events"
-                    className="relative group text-[#E5E2D9] transition-all duration-300 hover:text-white"
-                  >
+                  <a href="#events" className="relative group text-[#E5E2D9] transition-all duration-300 hover:text-white">
                     Events
                     <span className="absolute bottom-0 left-0 w-full h-[2px] bg-white transform scale-x-0 transition-transform duration-300 group-hover:scale-x-100"></span>
                   </a>
                 </li>
                 <li>
-                  <a
-                    href="#work-with-us"
-                    className="relative group text-[#E5E2D9] transition-all duration-300 hover:text-white"
-                  >
+                  <a href="#work-with-us" className="relative group text-[#E5E2D9] transition-all duration-300 hover:text-white">
                     Work With Us
                     <span className="absolute bottom-0 left-0 w-full h-[2px] bg-white transform scale-x-0 transition-transform duration-300 group-hover:scale-x-100"></span>
                   </a>
                 </li>
                 <li>
-                  <a
-                    href="#contact"
-                    className="relative group text-[#E5E2D9] transition-all duration-300 hover:text-white"
-                  >
+                  <a href="#contact" className="relative group text-[#E5E2D9] transition-all duration-300 hover:text-white">
                     Contact
                     <span className="absolute bottom-0 left-0 w-full h-[2px] bg-white transform scale-x-0 transition-transform duration-300 group-hover:scale-x-100"></span>
                   </a>
@@ -144,7 +123,7 @@ const Footer: React.FC = () => {
               </ul>
             </div>
 
-            {/* Social Media and Contact Section */}
+            {/* Social Media */}
             <div className="md:mt-20 mt-10 md:mb-0">
               <h4 className="text-2xl font-bold montez text-[#E5E2D9] mb-2">
                 Connect
@@ -153,7 +132,8 @@ const Footer: React.FC = () => {
                 <a
                   href="https://www.instagram.com/thosewhodine?igsh=cTcyNmJucmVjaTI0"
                   aria-label="Instagram"
-                  target="blank"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="text-[#E5E2D9] hover:text-[#505631] transition-colors"
                 >
                   <FaInstagram size={24} />
@@ -161,7 +141,8 @@ const Footer: React.FC = () => {
                 <a
                   href="https://www.tiktok.com/@thosewhodine?_t=ZN-8z0cOQ81ePm&_r=1"
                   aria-label="Tiktok"
-                  target="blank"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="text-[#E5E2D9] hover:text-[#505631] transition-colors"
                 >
                   <PiTiktokLogoLight size={24} />

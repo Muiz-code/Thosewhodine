@@ -1,42 +1,72 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
+
+type ConsultationFormData = {
+  firstName: string;
+  lastName: string;
+  email: string;
+  phone: string;
+  eventTime: string;
+  eventType?: string;
+  eventDate?: string;
+  numberOfGuests?: string;
+  budget?: string;
+  venue: string;
+  indoorsOrOutdoors: string;
+  occasion: string;
+  aesthetic: string;
+  colorPalette: string;
+  decorElements: string;
+  tableSetup: string;
+  otherTableSetup: string;
+  inspirationPhotos: string;
+  mealType: string;
+  otherMealType: string;
+  preferredCuisine: string;
+  otherPreferredCuisine: string;
+  customMenu: string;
+  beverages: string;
+  dessertCourse: string;
+  musicEntertainment: string;
+  customItems: string[];
+  additionalServices: string[];
+};
+
+const INITIAL_FORM_STATE: ConsultationFormData = {
+  firstName: "",
+  lastName: "",
+  email: "",
+  phone: "",
+  eventTime: "",
+  eventType: "",
+  eventDate: "",
+  numberOfGuests: "",
+  budget: "",
+  venue: "",
+  indoorsOrOutdoors: "",
+  occasion: "",
+  aesthetic: "",
+  colorPalette: "",
+  decorElements: "",
+  tableSetup: "",
+  otherTableSetup: "",
+  inspirationPhotos: "",
+  mealType: "",
+  otherMealType: "",
+  preferredCuisine: "",
+  otherPreferredCuisine: "",
+  customMenu: "",
+  beverages: "",
+  dessertCourse: "",
+  musicEntertainment: "",
+  customItems: [],
+  additionalServices: [],
+};
 
 const ConsultationForm: React.FC = () => {
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, []);
-
   const [currentStep, setCurrentStep] = useState(1);
+  const [stepError, setStepError] = useState("");
 
-  const [formData, setFormData] = useState<{
-    firstName: string;
-    lastName: string;
-    email: string;
-    phone: string;
-    eventTime: string;
-    eventType?: string;
-    eventDate?: string;
-    numberOfGuests?: string;
-    budget?: string;
-    venue: string;
-    indoorsOrOutdoors: string;
-    occasion: string;
-    aesthetic: string;
-    colorPalette: string;
-    decorElements: string;
-    tableSetup: string;
-    otherTableSetup: string;
-    inspirationPhotos: string;
-    mealType: string;
-    otherMealType: string;
-    preferredCuisine: string;
-    otherPreferredCuisine: string;
-    customMenu: string;
-    beverages: string;
-    dessertCourse: string;
-    musicEntertainment: string;
-    customItems: string[];
-    additionalServices: string[];
-  }>({
+  const [formData, setConsultationFormData] = useState<ConsultationFormData>({
     firstName: "",
     lastName: "",
     email: "",
@@ -65,7 +95,7 @@ const ConsultationForm: React.FC = () => {
     musicEntertainment: "",
     customItems: [],
     additionalServices: [],
-  });
+  } satisfies ConsultationFormData);
 
   const handleChange = (
     e: React.ChangeEvent<
@@ -77,7 +107,7 @@ const ConsultationForm: React.FC = () => {
       type === "checkbox" ? (e.target as HTMLInputElement).checked : undefined;
 
     if (type === "checkbox") {
-      setFormData((prevData) => {
+      setConsultationFormData((prevData) => {
         const list =
           (prevData[name as keyof typeof prevData] as string[]) || [];
         if (checked) {
@@ -93,21 +123,42 @@ const ConsultationForm: React.FC = () => {
         }
       });
     } else {
-      setFormData((prevData) => ({
+      setConsultationFormData((prevData) => ({
         ...prevData,
         [name]: value,
       }));
     }
   };
 
-  const nextStep = () => setCurrentStep((s) => s + 1);
-  const prevStep = () => setCurrentStep((s) => s - 1);
+  const validateStep = (step: number): boolean => {
+    setStepError("");
+    if (step === 1) {
+      if (!formData.firstName.trim()) { setStepError("First name is required."); return false; }
+      if (!formData.lastName.trim()) { setStepError("Last name is required."); return false; }
+      if (!formData.email.trim()) { setStepError("Email is required."); return false; }
+      if (!formData.phone.trim()) { setStepError("Phone number is required."); return false; }
+    }
+    if (step === 2) {
+      if (!formData.eventType) { setStepError("Please select an event type."); return false; }
+      if (!formData.eventDate) { setStepError("Event date is required."); return false; }
+      if (!formData.numberOfGuests) { setStepError("Number of guests is required."); return false; }
+    }
+    if (step === 3) {
+      if (!formData.venue) { setStepError("Please select a venue option."); return false; }
+      if (!formData.indoorsOrOutdoors) { setStepError("Please select indoors or outdoors."); return false; }
+    }
+    return true;
+  };
+
+  const nextStep = () => {
+    if (validateStep(currentStep)) setCurrentStep((s) => s + 1);
+  };
+  const prevStep = () => { setStepError(""); setCurrentStep((s) => s - 1); };
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
     const form = e.currentTarget;
-    // This is the key change: create a FormData object from your state, not the DOM
     const formStateData = new FormData();
     Object.entries(formData).forEach(([key, value]) => {
       // Handle array values (e.g., checkboxes)
@@ -121,7 +172,7 @@ const ConsultationForm: React.FC = () => {
     try {
       const response = await fetch(form.action, {
         method: form.method,
-        body: formStateData, // Use the new FormData object
+        body: formStateData, // Use the new ConsultationFormData object
         headers: {
           Accept: "application/json",
         },
@@ -129,46 +180,13 @@ const ConsultationForm: React.FC = () => {
 
       if (response.ok) {
         alert("Thank you for your submission! We will be in touch shortly.");
-        console.log("Form submitted successfully!");
-        // Reset the form fields and state
-        form.reset(); // This is still useful for resetting uncontrolled fields
-        setFormData({
-          firstName: "",
-          lastName: "",
-          email: "",
-          phone: "",
-          eventTime: "",
-          eventType: "",
-          eventDate: "",
-          numberOfGuests: "",
-          budget: "",
-          venue: "",
-          indoorsOrOutdoors: "",
-          occasion: "",
-          aesthetic: "",
-          colorPalette: "",
-          decorElements: "",
-          tableSetup: "",
-          otherTableSetup: "",
-          inspirationPhotos: "",
-          mealType: "",
-          otherMealType: "",
-          preferredCuisine: "",
-          otherPreferredCuisine: "",
-          customMenu: "",
-          beverages: "",
-          dessertCourse: "",
-          musicEntertainment: "",
-          customItems: [],
-          additionalServices: [],
-        });
-        setCurrentStep(1); // Go back to the first step
+        form.reset();
+        setConsultationFormData(INITIAL_FORM_STATE);
+        setCurrentStep(1);
       } else {
-        console.error("Form submission failed.");
         alert("There was an issue with your submission. Please try again.");
       }
-    } catch (error) {
-      console.error("Error during form submission:", error);
+    } catch {
       alert("There was an error. Please try again later.");
     }
   };
@@ -270,7 +288,10 @@ const ConsultationForm: React.FC = () => {
                 </div>
               </div>
 
-              <div className="flex justify-between mt-6">
+              {stepError && (
+                <p className="text-red-600 text-sm playfair mt-2">{stepError}</p>
+              )}
+              <div className="flex justify-between mt-4">
                 <div />
                 <button
                   type="button"
@@ -320,7 +341,7 @@ const ConsultationForm: React.FC = () => {
                       htmlFor="eventDate"
                       className="block md:text-xl text-[15px] font-medium text-[#2B3210] playfair mb-2"
                     >
-                      Event Dat
+                      Event Date
                     </label>
                     <input
                       type="date"
@@ -337,7 +358,7 @@ const ConsultationForm: React.FC = () => {
                       htmlFor="eventTime"
                       className="block md:text-xl text-[15px] font-medium text-[#2B3210] playfair mb-2"
                     >
-                      Event Start Tim
+                      Event Start Time
                     </label>
                     <input
                       type="time"
@@ -392,7 +413,10 @@ const ConsultationForm: React.FC = () => {
                 </div>
               </div>
 
-              <div className="flex justify-between mt-6">
+              {stepError && (
+                <p className="text-red-600 text-sm playfair mt-2">{stepError}</p>
+              )}
+              <div className="flex justify-between mt-4">
                 <button
                   type="button"
                   onClick={prevStep}
@@ -548,7 +572,10 @@ const ConsultationForm: React.FC = () => {
                 </div>
               </div>
 
-              <div className="flex justify-between mt-6">
+              {stepError && (
+                <p className="text-red-600 text-sm playfair mt-2">{stepError}</p>
+              )}
+              <div className="flex justify-between mt-4">
                 <button
                   type="button"
                   onClick={prevStep}

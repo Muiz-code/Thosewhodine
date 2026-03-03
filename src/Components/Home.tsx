@@ -19,7 +19,7 @@ const Home = () => {
           <img
             src={logo}
             className="md:w-[7%] w-[20%] hover:scale-105 duration-300 transition-all"
-            alt=""
+            alt="Those Who Dine logo"
           />
         </Link>
         <div>
@@ -27,7 +27,8 @@ const Home = () => {
             <a
               href="https://www.instagram.com/thosewhodine?igsh=cTcyNmJucmVjaTI0"
               aria-label="Instagram"
-              target="blank"
+              target="_blank"
+              rel="noopener noreferrer"
               className="text-[#E5E2D9] hover:text-[#505631] md:text-[25px] text-[20px] transition-colors"
             >
               <FaInstagram />
@@ -35,7 +36,8 @@ const Home = () => {
             <a
               href="https://www.tiktok.com/@thosewhodine?_t=ZN-8z0cOQ81ePm&_r=1"
               aria-label="Tiktok"
-              target="blank"
+              target="_blank"
+              rel="noopener noreferrer"
               className="text-[#E5E2D9] hover:text-[#505631] md:text-[25px] text-[20px] transition-colors"
             >
               <PiTiktokLogoLight />
@@ -55,13 +57,6 @@ const Home = () => {
         <h1 className="text-[50px] md:text-[100px] md:w-[85%] w-[99%] text-center md:p-0 p-[2.5px] montez text-[#fff] textSpace1">
           Flavourful Journeys, Curated Moments.
         </h1>
-        {/* 
-        <TypewriterText
-          text="Flavourful Journey’s, Curated Moments."
-          speed={10}
-          style1="text-[#fff] text-[40px] montez text-center md:w-[50%] w-[97%] dm-sans"
-          style2="border-r-2 border-[#E5E2D9] animate-pulse ml-1"
-        /> */}
       </div>
     </div>
   );

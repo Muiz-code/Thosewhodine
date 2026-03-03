@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 
 interface TypewriterTextProps {
   text: string;
@@ -7,30 +7,31 @@ interface TypewriterTextProps {
   style2?: string;
 }
 
-const TypewriterText: React.FC<TypewriterTextProps> = ({
+// Single state (index) instead of two separate states — halves the render count.
+// Also resets cleanly when the text prop changes.
+const TypewriterText = ({
   text,
   speed = 30,
   style1,
   style2,
-}) => {
-  const [displayedText, setDisplayedText] = useState("");
-  const [currentIndex, setCurrentIndex] = useState(0);
+}: TypewriterTextProps) => {
+  const [index, setIndex] = useState(0);
+
+  // Reset when text prop changes
+  useEffect(() => {
+    setIndex(0);
+  }, [text]);
 
   useEffect(() => {
-    if (currentIndex < text.length) {
-      const timeout = setTimeout(() => {
-        setDisplayedText((prevText) => prevText + text[currentIndex]);
-        setCurrentIndex((prevIndex) => prevIndex + 1);
-      }, speed);
-
-      return () => clearTimeout(timeout);
-    }
-  }, [currentIndex, text, speed]);
+    if (index >= text.length) return;
+    const timeout = setTimeout(() => setIndex((i) => i + 1), speed);
+    return () => clearTimeout(timeout);
+  }, [index, text.length, speed]);
 
   return (
-    <p className={`${style1}`}>
-      {displayedText}
-      <span className={`${style2}`} />
+    <p className={style1}>
+      {text.slice(0, index)}
+      <span className={style2} />
     </p>
   );
 };
